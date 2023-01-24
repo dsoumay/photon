@@ -1,61 +1,132 @@
 ---
-title: What is New in Photon OS 4
-linkTitle: Whats New in Photon 4
+title: What is New in Photon OS 5
+linkTitle: What is New in Photon 5
 weight: 15
 ---
 
-Photon OS 4.0  provides support for the Real Time flavor of kernel linux-rt, SELinux , installer improvements, PMD role management improvements and critical updates to OSS packages including linux kernel, systemd, and glibc. This topic summarizes what's new and different in Photon OS 4.0. 
+Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextgen, Container Runtime Security, Linux Real-Time Kernel, and TDNF Features. This release of Photon OS also supports XFS and BTRFS filesystems, Control Group V2,  ARM64 on Linux-esx kernel, PostgreSQL. It contains installer improvements, and critical updates to the OSS packages including Linux kernel version updates. This topic summarizes what's new and different in Photon OS 5.0.
 
 ## New Features
 
-- Photon OS 4.0 features a kernel flavor called 'linux-rt' to support low-latency real time applications. `linux-rt` is based on the Linux kernel PREEMPT_RT patchset that turns Linux into a hard real time operating system. In addition to the real time kernel itself, Photon OS 4.0 supports several userspace packages such as tuned, tuna, stalld etc., that are useful to configure the operating system for real time workloads. The linux-rt kernel and the associated userspace packages together are referred to as Photon Real Time (RT).
+- **Enhancements in Network Configuration Manager:** You can now use Network Configuration Manager to perform the following tasks:
 
-- SELinux is an implementation of mandatory access controls (MAC) on Linux. Photon OS 4.0 provides an opportunity for the appliance to enable SElinux, either in Permissive or Enforcement mode. Photon OS ships will also include a default policy which the appliance can choose to customise depending on their needs during the build time. Photon also supports SELinux for containers.
+	- Configure multiple routes and addresses section
+	- Configure WireGuard
+	- Configure SR-IOV
+	- Create NetDev, VLAN, VXLAN, Bridge, Bond, VETH (Virtual Ethernet), MacVLAN/MacVTap, IPvlan/IPvtap, tunnels (IPIP, SIT, GRE, VTI)
+	- Create, configure, and remove virtual network devices
 
-- Photon 4.0 brings out a completely revamped network configuration management library. It is a totally new avatar of the previous netmgr and has been developed with the goal of providing a set of APIs for common tasks such as configuring IP addresses, network routes, interface states, DNS, etc. This allows the user to configure the network on a Photon OS through simpler API calls that handle much of the complexity of configuring the network, which the user would have to do if they took the route of directly manipulating the various configuration files. 
+	You can run query or configure the following parameters of network devices:
+	
+	- Alias, Description, MTUBytes, WakeOnLan, WakeOnLanPassword, Port, BitsPerSecond, Duplex and Advertise
+	- Offload parameters and other features
+	- MACAddressPolicy or MACAddress
+	- NamePolicy or Name
+	- AlternativeNamesPolicy or AlternativeName
+	- Pending packets receive a buffer
+	- Queue size
+	- Flow control
+	- GSO
+	- Channels
+	- Coalesce
+	- Coalesced frames
+	- Coalesce packet rate
 
-- Photon OS 4.0 provides support for Raspberry Pi 4.
+- **PMD-Nextgen Enhancement:** The capabilities to configure the following options are added to pmd-nextgen:
+	- Configure system hostname
+	- Configure network sriov
+	- Configure Tun
+	- Configure Tap
+	- Configure TLS
 
-- OVA and AMI images for ARM architecture are available in Photon OS 4.0.
 
-- In `tdnf`, support is added for the following:
+- **Network-event-broker:** Network-event-broker now supports emitting network data in JSON format.
 
-	1. Validation of externally configured GPGkeys
-	2. `tdnf-automatic` to allow administrators to configure systems to automatically download and perform updates without manual intervention
-	3. Metalink in the `tdnf` repositories allows configuration of multiple mirrors to download the repository data
-	4. Local and remote URL package installation
-	5. SSL Options 
 
-- The performance of the `makecache` command in `tdnf` is improved in Photon OS 4.0. To improve the performance of the `makecache` command, the update RPM repository is split into the following repositories for both the architectures:
-	1. photon\_updates\_4.0_<architecture\>
-	2. photon\_4.0\_<architecture\>
+- **Kernel-Version Update:** The following Kernel flavors are updated to kernel version 6.0.7 in Photon OS:  
+	- Linux  
+	- Linux-esx  
+	- Linux-secure  
+	- Linux-rt  
 
-  photon\_updates\_4.0_<architecture\> repository contains all the latest versions of the updated RPMs and is enabled by default. photon\_4.0\_<architecture\> contains all the previous versions of the updated RPMs and is disabled by default. The users can enable this repository by specifying the `enablerepo` option in `tdnf` command if they wish to consume a previous version.
+
+- **Support for New Filesystems:** Support is added for the following filesystems in Photon OS:
+	- XFS: With the support of the XFS filesystem, you can implement an environment that requires high performance, and scalability for data-intensive tasks.
+	- BTRFS: You can use the BTRFS filesystem for high performance, better reliability, and efficient data storage capabilities.
+
+
+
+- **Support for Control Group V2:** cgroup v2 is now available in Photon OS. With cgroup v2, you get improved resource management capabilities, a unified hierarchy scheme, and a safer sub-tree delegation to containers. Features like Pressure Stall Information and rootless containers in cgroup v2 ensure better management and security capabilities of the control groups.
+
+
+- **Enhanced Container Runtime Security:** To improve the runtime security of the containers, the following enhancements are added to Photon OS:
+	- Support for SELinux policy: You can now enable and configure the SELinux policy to manage access to files, directories, and other system resources. This drastically reduces the risk of a security breach.
+	- Support for rootless containers: Photon OS supports rootless containers. An unprivileged user can now create and manage containers. Since unprivileged users do not have root privileges on the host machine, it prevents any security threat to the host machine.
+
+
+
+- **Improved Linux Real-Time Kernel:** The linux-rt kernel flavor comes with improvements such as low-latency optimizations, stability enhancements, and debugging enhancements. Linux-rt now also supports the Intel Sapphire Rapids CPUs including the Telco-specific 5G ISA.
+
+
+- **Support for ARM64:** Support for ARM64 is now available for the linux-esx kernel in Photon OS.
+ 
+
+- **PostgreSQL versions:** The following PostgreSQL versions are supported on Photon OS:
+	- PostgreSQL 13
+	- PostgreSQL 14 (recommended version)
+
+
+- **Driver VM SDK:** Photon OS 5.0 introduces a GPU driver VM SDK that the users can use for a specific kernel version of Photon OS. This ensures support for multiple Photon kernels on an ESXi version.
+
+- **TDNF Feature enhancements:** The metalink functionality in tdnf is now available as a plugin. In tdnf, support is added for the following:
+
+	- history (`list`, `rollback`, `undo` and `redo`)
+	- `mark` command
+	- checking the available cache size of a download
+	- multiple base URLs
+	- `--skip-broken` option
+	- `--alldeps` option when downloading
+	- `--testonly` option
 
 ### Installer and Build System Updates
+- Support Pre-install script in photon installer
+- A tool is now available to generate a custom initial RAM disk (initrd)
+- A tool is now available to generate custom installer ISO
 
-- Support for distributed builds using Kubernetes
-- Availability of Photon OS installer as RPM
-- Support for multiple disks in image builder
-- Support for untrusted (self-signed) HTTPS in kickstart ISO installation
-- `zstd` as the default compression mechanism for RPM
+### Package Updates:
 
+The following OS packages are updated:
 
-### Package and Binary Maintenance
-
-- Cloud-ready images for rapid deployment on Microsoft Azure (new), Google Compute Engine (GCE), Amazon Elastic Compute Cloud (EC2), and VMware products (vSphere, Fusion, and Workstation)
-- Critical updates to the following base OS packages:
-    - Linux kernel 5.10 LTS
-    - Glibc 2.32
-    - systemd 247
-    - Python3 3.9
-    - Openjdk : 1.8.0.265, 11.0.9
-    - Openssl : 1.1.1
-    - Cloud-init: 20.4.1
-    - GCC: 10.2.0
-- Up-to-date versions for most packages available in the repository.
-
+- Linux kernel 6.0.7
+- Gcc : 12.2
+- Glibc 2.36
+- Systemd 252.4
+- Python3 3.11
+- Openjdk : 11 and 17
+- Openssl : 3.0.7
+- Cloud-init: 22.4.2
+- Rubygem: 3.1.2
+- Perl: 5.36
 
 ## Notes
-Openjdk 1.10 is end of life and is being shipped to serve the sole purpose of build dependency. There will no future updates - Updates to security or otherwise will be done to the openjdk10 package.
+ 
+The following OS packages are removed in this release.
 
+- Photon Management Daemon (PMD)
+- lightwave
+- likewise-open
+- openjdk8
+- fcgi
+- libnss-ato
+- tiptop
+- ndsend
+- ulogd
+- lightstep-tracer-cpp
+- json_spirit
+- cgroup-utils
+- c-rest-engine
+- dcerpc
+- gssapi-unix
+- python3-PyPAM
+- python3-backports_abc
+- sshfs
