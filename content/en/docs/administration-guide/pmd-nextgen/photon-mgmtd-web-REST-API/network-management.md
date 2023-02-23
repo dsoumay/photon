@@ -10,7 +10,7 @@ weight: 3
 
 To fetch complete network details, execute a GET request in the following format:
 
-	curl --unix-socket /run/photon-mgmt/photon-mgmt.sock --request GET http://localhost/api/v1/network/describe | jq % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 5238 0 5238 0 0 88919 0 --:--:-- --:--:-- --:--:-- 90310
+	curl --unix-socket /run/photon-mgmt/mgmt.sock --request GET http://localhost/api/v1/network/describe | jq % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 5238 0 5238 0 0 88919 0 --:--:-- --:--:-- --:--:-- 90310
 
 **Response:**
 
@@ -424,11 +424,11 @@ To fetch complete network details, execute a GET request in the following format
 
 To fetch the route details, execute a GET request in the following format:
 
-    curl --unix-socket /run/photon-mgmt/photon-mgmt.sock http://localhost/api/v1/network/netlink/route
+    curl --unix-socket /run/photon-mgmt/mgmt.sock http://localhost/api/v1/network/netlink/route
 
 Example:
 
-    root@photon [ ~/4.0/photon ]# curl --unix-socket /run/photon-mgmt/photon-mgmt.sock http://localhost/api/v1/network/netlink/route | jq % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 1407 100 1407 0 0 996k 0 --:--:-- --:--:-- --:--:-- 1374k
+    root@photon [ ~/4.0/photon ]# curl --unix-socket /run/photon-mgmt/mgmt.sock http://localhost/api/v1/network/netlink/route | jq % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 1407 100 1407 0 0 996k 0 --:--:-- --:--:-- --:--:-- 1374k
 
 
 **Response:**  
@@ -572,11 +572,11 @@ Example:
 
 To fetch all the interfaces links details (such as interface, mac address, and transaction), execute a GET request in the following format:
 
-    curl --unix-socket /run/photon-mgmt/photon-mgmt.sock http://localhost/api/v1/network/netlink/link
+    curl --unix-socket /run/photon-mgmt/mgmt.sock http://localhost/api/v1/network/netlink/link
 
 Example:
 
-    curl --unix-socket /run/photon-mgmt/photon-mgmt.sock http://localhost/api/v1/network/netlink/link
+    curl --unix-socket /run/photon-mgmt/mgmt.sock http://localhost/api/v1/network/netlink/link
 
 **Response:**  
     
@@ -825,6 +825,14 @@ Example:
 Example: 
 
 	>pmctl network add-link-address ens37 address 192.168.0.15/24 peer 192.168.10.10/24 label ipv4 scope link
+
+#### Configure network SR-IOV
+
+	pmctl network add-sriov dev <deviceName> vf <VirtualFunction> vlanid <VLANId> qos <QualityOfService> vlanproto <VLANProtocol> macsfc <MACSpoofCheck> qrss <QueryReceiveSideScaling> trust <Trust> linkstate <LinkState> macaddr <MACAddress>
+
+Example:
+
+	>pmctl network add-sriov dev ens37 vf 2 vlanid 1 qos 1024 vlanproto 802.1Q macsfc yes qrss yes trust yes linkstate auto macaddr 00:0c:29:3a:bc:11
 
 
 #### Configure network route
@@ -1137,7 +1145,21 @@ Example:
 
 	>pmctl network create-wg wg1 dev ens37 skey wCmc/74PQpRoxTgqGircVFtdArZFUFIiOoyQY8kVgmI= pkey dSanSzExlryduCwNnAFt+rzpI5fKeHuJx1xx2zxEG2Q= endpoint 10.217.69.88:51820
 
+#### Configure Tun
 
+	pmctl network create-tun <tunName> dev <device> mq <MultiQueue> pktinfo<PacketInfo> vnet-hdr <VNetheader> usr <User> grp <Group> kc <KeepCarrier>
+
+Example:
+
+	>pmctl network create-tun tun1 dev ens37 mq yes pktinfo yes vnet-hdr no usr test-user grp test-group kc no
+
+#### Configure Tap
+
+	pmctl network create-tap <tapName> dev <device> mq <MultiQueue> pktinfo<PacketInfo> vnet-hdr <VNetheader> usr <User> grp <Group> kc <KeepCarrier>
+
+Example:
+
+	>pmctl network create-tap tap99 dev ens37 mq yes pktinfo yes vnet-hdr no usr test-user grp test-group kc no
 
 ### Remove Network Device Using `pmctl`
 
@@ -1215,7 +1237,7 @@ Example:
 
 	>pmctl link set-vlan-tags dev ens37 rxvlanctaghwacl true txvlanctaghwacl false rxvlanctagfilter true txvlanstaghwacl true
 
-# Configure Link Channels
+#### Configure Link Channels
 
 	pmctl link set-channel dev <deviceName> rxch <RxChannels> txch <TxChannels> oth <OtherChannels> coch <CombinedChannels>
 
@@ -1311,7 +1333,8 @@ Example:
 
 To fetch the Ethtool Status, use the following command:
 
-```bash
+```
+bash
 
 \#Get Ethtool all status 
 
@@ -1329,9 +1352,4 @@ Example:
 
 	>pmctl status ethtool ens37 bus
 
-
-
-
-
-
-
+```
