@@ -4,7 +4,7 @@ weight: 3
 ---
 
 
-You can use `network-config-manager` (`nmctl`) to configure and introspect the state of the network links as seen by `systemd-networkd`. `nmctl` can be used to query and configure devices for Addresses, Routes, Gateways, DNS, NTP, Domain, and hostname. You can also use `nmctl` to create virtual NetDevs (VLAN, VXLAN, Bridge, Bond, and so on). You can configure various configuration of links such as WakeOnLanPassword, Port, BitsPerSecond, Duplex and Advertise, and so on. `nmctl` uses `sd-bus`, libudev APIs to interact with `systemd`, `systemd-networkd`, `systemd-resolved`, `systemd-hostnamed`, and `systemd-timesyncd` via dbus. `nmctl` uses `networkd` verbs to explain output. `nmctl` can generate configurations that persist between reboots.
+You can use `network-config-manager` (`nmctl`) to configure and introspect the state of the network links as seen by `systemd-networkd`. `nmctl` can be used to query and configure devices for Addresses, Routes, Gateways, DNS, NTP, Domain, and hostname. You can also use `nmctl` to create virtual NetDevs (VLAN, VXLAN, Bridge, Bond, and so on). You can configure various configuration of links such as WakeOnLanPassword, Port, BitsPerSecond, Duplex and Advertise, and so on. `nmctl` uses `sd-bus`, `sd-device` APIs to interact with `systemd`, `systemd-networkd`, `systemd-resolved`, `systemd-hostnamed`, and `systemd-timesyncd` via dbus. `nmctl` uses `networkd` verbs to explain output. `nmctl` can generate configurations that persist between reboots.
 
 
 
@@ -85,7 +85,7 @@ nmctl add-dns dev eth0 dns 192.168.1.45 192.168.1.46
 To set mtu, use the following command:
 
 ```
-nmctl set-ipv6mtu  dev eth0 1500
+nmctl set-mtu dev eth0 mtu 1400
 ```
 
 To set mac, use the following command:
@@ -97,23 +97,19 @@ nmctl set-mac dev eth0 mac 00:0c:29:3a:bc:11
 To set link options, use the following command:
 
 ```
-nmctl set-link-option dev eth0 arp yes mc yes amc 0 pcs false
+nmctl set-link-option dev eth0 arp yes mc yes amc no pcs no
 ```
 
 To add a static address, use the following command:
 
 ```
-"nmctl add-addr dev eth0 a 192.168.1.45/24 peer 192.168.1.46/24 dad ipv4 scope "
-                              "link pref-lifetime forever prefix-route yes label test"
+nmctl add-addr dev eth0 a 192.168.1.45/24
 ```
 
 To add a default gateway, use the following command:
 
 ```
-
-"nmctl add-addr dev eth0 a 192.168.1.45/24 peer 192.168.1.46/24 dad "
-                              "ipv4 scope link pref-lifetime forever prefix-route yes label 3434"
-
+nmctl add-default-gw dev eth0 gw 192.168.1.1 onlink  yes
 ```
 
 
@@ -123,8 +119,7 @@ The following command creates `.netdev` and `.network` and assigns them to the u
 ```
 ❯ nmctl create-vlan [VLAN name] dev [MASTER DEVICE] id [ID INTEGER] proto [PROTOCOL {802.1q|802.1ad}] Creates vlan netdev and network file
 
-❯ sudo nmctl create-vlan vlan-95 dev dummy95 id 19
-
+❯ sudo nmctl create-vlan vlan-95 dev eth0 id 19
 ```
 
 
