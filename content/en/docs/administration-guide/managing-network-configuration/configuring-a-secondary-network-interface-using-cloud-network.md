@@ -60,12 +60,9 @@ Specifies the time interval. The time interval indicates the amount of time take
 
 You can set values for the following keys in the `[Network]` section:
 
+`Listen=`
 
-`Address=`  
-Specifies the IP address that the local REST API server listens. Default is `127.0.0.1`.
-
-`Port=`  
-Specifies the IP port that the local REST API server listens. Default is `5209`.
+Specifies the IP address and the port that the local REST API server listens. You can specify the IP address and the port in the following format `ip:port`. Defaults is `127.0.0.1:5209`.
 
 `Supplementary=`  
 A whitespace-separated list of interfaces matching the device name. Specifies the interfaces you want to configure with a default gateway and routing policy rules for each IP address including the primary IP address. No default value is set for this key.
@@ -77,16 +74,17 @@ A whitespace-separated list of interfaces matching the device name. Specifies th
 The following example shows a sample configuration of the key values in the `cloud-network.toml` file:
 
 
-    > cat /etc/cloud-network/cloud-network.toml
-    [System]
-    RefreshTimer="300s"
-    LogLevel="info"
-    LogFormat="text"
-    
-    [Network]
-    Address="127.0.0.1"
-    Port="5209"
-    Supplementary="ens3"
+```
+> cat /etc/cloud-network/cloud-network.toml
+[System]
+RefreshTimer="300s"
+LogLevel="info"
+LogFormat="text"
+
+[Network]
+Listen="127.0.0.1:5209"
+Supplementary="eth0"
+```
 
 
 After you set the configuration, use the `sudo systemctl status cloud-network` command to check the network status of the `cloud-network` service. 
