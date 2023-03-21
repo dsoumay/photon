@@ -13,4 +13,25 @@ Photon OS consists of a minimal version, a full version, RPM OSTree, and Photon 
 
 - OSTree is a tool to manage bootable, immutable, versioned filesystem trees. Unlike traditional package managers like rpm or dpkg that know how to install, uninstall, configure packages, OSTree has no knowledge of the relationship between files. But when you add rpm capabilities on top of OSTree, it becomes RPM-OSTree, meaning a filetree replication system that is also package-aware.
 
-- Photon OS features a kernel flavor called 'linux-rt' to support low-latency real time applications. linux-rt is based on the Linux kernel PREEMPT_RT patchset that turns Linux into a hard real time operating system. In addition to the real time kernel itself, Photon OS 4.0 supports several userspace packages such as tuned, tuna, stalld etc., that are useful to configure the operating system for real time workloads. The linux-rt kernel and the associated userspace packages together are referred to as Photon Real Time (RT).
+- Photon OS features a kernel flavor called 'linux-rt' to support low-latency real time applications. linux-rt is based on the Linux kernel PREEMPT_RT patchset that turns Linux into a hard real time operating system. In addition to the real time kernel itself, Photon OS 4.0 supports several userspace packages such as tuned, tuna, stalld etc., that are useful to configure the operating system for real time workloads. The linux-rt kernel and the associated userspace packages together are referred to as Photon Real Time (RT).      
+In Photon OS 5.0, the `linux-rt` kernel flavor comes with the following improvements:
+
+	- **Low-latency Optimizations**: Low-latency is achieved with the following feature enhancements:
+
+		-  Guest Timer Advancement feature in `linux-rt` mitigates the cost of timer virtualization on ESXi. This makes Photon RT on ESXi and bare-metal indistinguishable in terms of the cyclictest benchmark results.
+		-  Enhancements to tuned and trace-cmd packages to reduce OS jitter to real-time workloads.
+
+	- **Stability Enhancements**: Enhanced stability is achieved with the following improvements:
+		
+		- `stalld` version is updated to 1.17.1, which brings in several improvements to the effectiveness and efficiency of `stalld` in resolving kernel thread starvation.
+		- Updated `stalld` configuration file with more effective and field-proven defaults.
+
+	- **Debugging Enhancements:**: Debugging enhancements are achieved with the following improvements:
+
+		- To aid with latency tuning and debugging, osnoise, and timerlat latency tracers are enabled in the `linux-rt` kernel.
+		- Enabled Kernel's hung-task detector in tuned real-time profile's configuration.
+
+	- **Hardware Enablement**: Support is added for Intel Sapphire Rapids CPUs, including its Telco-specific 5G ISA.
+
+
+
