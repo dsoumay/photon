@@ -19,9 +19,31 @@ You can use the Photon OS Installer to perform the following tasks:
 
 The Photon OS installer has the following dependencies:
 
+**Build Dependecies:**
+
 - python3
 - python3-pyinstaller 
 - python3-setuptools
+- python3-devel
+- python3-requests
+- python3-cracklib
+- python3-curses
+
+
+**Run time dependecies:**
+
+- dosfstools
+- efibootmgr
+- glibc
+- gptfdisk
+- grub2
+- kpartx
+- lvm2
+- zlib
+- cdrkit
+- findutils
+
+**Note**: If the architecture is x86, then we need to add `grub2-pc` also in runtime dependency.
 
 
 ## Building from source
@@ -78,12 +100,12 @@ from photon_installer.installer import Installer
 import json
 with open('path_to_file/config.json') as f:
     install_config = json.load(f)
-installer = Installer(working_directory='/root/photon/stage/ova', rpm_path='/root/photon/stage/RPMS', log_path='/root/photon/stage/LOGS')
+installer = Installer(working_directory='/root/photon/stage/ova', repo_paths='/root/photon/stage/RPMS', log_path='/root/photon/stage/LOGS')
 installer.configure(install_config)
 installer.execute()
 ```    
 
-You can refer to the sample installation configuration files on the following page: [Sample Kickstart Files](https://github.com/vmware/photon/blob/master/installer/sample_ks.cfg)
+You can refer to the sample installation configuration files on the following page: [Sample Kickstart Files](https://github.com/vmware/photon-os-installer/blob/master/sample_ks/sample_ks.cfg)
 
 
 Developers or contributors can refer to the Photon OS Installer project here: [Photo OS Installer](https://github.com/vmware/photon-os-installer/tree/master)

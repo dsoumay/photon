@@ -47,7 +47,7 @@ ks=/dev/sr1:/isolinux/sample_ks.cfg
 
 On Photon OS, you can configure many settings such as the hostname, password, disk to install, post installation script, and so on. 
 
-To find out more about the Kickstart capabilities and the permitted JSON parameters in Kickstart, see the following page: [Kicksrat Features](https://github.com/vmware/photon-os-installer/blob/master/docs/ks_config.md)
+To find out more about the Kickstart capabilities and the permitted JSON parameters in Kickstart, see the following page: [Kickstart Features](https://github.com/vmware/photon-os-installer/blob/master/docs/ks_config.md)
 
 
 ## Sample Configuration File
