@@ -4,7 +4,7 @@ linkTitle: What is New in Photon 5
 weight: 15
 ---
 
-Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextgen, Container Runtime Security, Linux Real-Time Kernel, and TDNF Features. This release of Photon OS also supports XFS and BTRFS filesystems, Control Group V2,  ARM64 on Linux-esx kernel, PostgreSQL. It contains installer improvements, and critical updates to the OSS packages including Linux kernel version updates. This topic summarizes what's new and different in Photon OS 5.0.
+Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextgen, Container Runtime Security, Linux Real-Time Kernel, and TDNF Features. The release introduces the Photon OS Container Builder tool. This release of Photon OS also supports XFS and BTRFS filesystems, Control Group V2,  ARM64 on Linux-esx kernel, PostgreSQL. It contains installer improvements and critical updates to the OSS packages including Linux kernel version updates. This topic summarizes what's new and different in Photon OS 5.0.
 
 ## New Features
 
@@ -15,6 +15,7 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 	- Configure SR-IOV
 	- Create NetDev, VLAN, VXLAN, Bridge, Bond, VETH (Virtual Ethernet), MacVLAN/MacVTap, IPvlan/IPvtap, tunnels (IPIP, SIT, GRE, VTI)
 	- Create, configure, and remove virtual network devices
+	- Generate configurations for required network/netdev/link from a YAML file
 
 	You can run query or configure the following parameters of network devices:
 	
@@ -42,8 +43,10 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 
 - **Network-event-broker:** Network-event-broker now supports emitting network data in JSON format.
 
+- **Photon OS Container Builder**: The `cntrctl` tool in Photon OS 5.0 allows you to build a lightweight Photon OS container. You can use this to build an isolated environment to run various Photon OS test cases. 
 
-- **Kernel-Version Update:** The following Kernel flavors are updated to kernel version 6.0.7 in Photon OS:  
+
+- **Kernel-Version Update:** The following Kernel flavors are updated to kernel version 6.1.10 in Photon OS:  
 	- Linux  
 	- Linux-esx  
 	- Linux-secure  
@@ -57,6 +60,8 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 
 
 - **Support for Control Group V2:** cgroup v2 is now available in Photon OS. With cgroup v2, you get improved resource management capabilities, a unified hierarchy scheme, and a safer sub-tree delegation to containers. Features like Pressure Stall Information and rootless containers in cgroup v2 ensure better management and security capabilities of the control groups.
+
+- **Support for Kernel Live Patching**: With Kernel Live Patching, an administrator can patch a running kernel without rebooting.
 
 
 - **Enhanced Container Runtime Security:** To improve the runtime security of the containers, the following enhancements are added to Photon OS:
@@ -73,12 +78,10 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 
 - **PostgreSQL versions:** The following PostgreSQL versions are supported on Photon OS:
 	- PostgreSQL 13
-	- PostgreSQL 14 (recommended version)
+	- PostgreSQL 14
+	- PostgreSQL 15
 
-
-- **Driver VM SDK:** Photon OS 5.0 introduces a GPU driver VM SDK that the users can use for a specific kernel version of Photon OS. This ensures support for multiple Photon kernels on an ESXi version.
-
-- **TDNF Feature enhancements:** The metalink functionality in tdnf is now available as a plugin. In tdnf, support is added for the following:
+- **TDNF Feature Enhancements:** The metalink functionality in tdnf is now available as a plugin. In tdnf, support is added for the following:
 
 	- history (`list`, `rollback`, `undo` and `redo`)
 	- `mark` command
@@ -87,26 +90,44 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 	- `--skip-broken` option
 	- `--alldeps` option when downloading
 	- `--testonly` option
+	- `--nodeps` option for `--downloadonly`
+	- `--source` and `--builddeps` options
+	- `dnf_check_update_compat` config file option
+	- support for `tsflags=nodocs`
+	- `--repofromdir` option
+	- `--arch` option to repoquery
+	- Configuration tool: Set of commands to change tdnf's configuration files and repository files.
+
+- **OVA Updates**: UEFI OVA is built with hardware version 15.
+
 
 ### Installer and Build System Updates
 - Support Pre-install script in photon installer
 - A tool is now available to generate a custom initial RAM disk (initrd)
-- A tool is now available to generate custom installer ISO
+- A tool is now available to generate a custom installer ISO
+- A tool is now available to generate a custom RPM-OSTree ISO
+- Support is added for the following features in Kickstart:   <p>
+	- `sizepercent`: specifies the size of the partition in percent of the total disk space. 
+	- `repos`: Specifies the RPM repositories to install the RPMs.
+- Support for A/B Partition System: Photon OS 5.0 supports seamless updates and rollback with the A/B storage partition system.
+
 
 ### Package Updates:
 
 The following OS packages are updated:
 
-- Linux kernel 6.0.7
+- Linux kernel 6.1.10
 - Gcc : 12.2
 - Glibc 2.36
-- Systemd 252.4
+- Systemd 253
 - Python3 3.11
 - Openjdk : 11 and 17
-- Openssl : 3.0.7
-- Cloud-init: 22.4.2
+- Openssl : 3.0.8
+- Cloud-init: 23.1.1
 - Rubygem: 3.1.2
 - Perl: 5.36
+- Kubernetes 1.26.1
+- Go 1.20.2
 
 ## Notes
  
