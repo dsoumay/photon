@@ -15,7 +15,7 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 	- Configure SR-IOV
 	- Create NetDev, VLAN, VXLAN, Bridge, Bond, VETH (Virtual Ethernet), MacVLAN/MacVTap, IPvlan/IPvtap, tunnels (IPIP, SIT, GRE, VTI)
 	- Create, configure, and remove virtual network devices
-	- Generate configurations for required network/netdev/link from a YAML file
+	- Generate more flexible netplan like network configuration from a YAML file
 
 	You can run query or configure the following parameters of network devices:
 	
@@ -43,7 +43,7 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 
 - **Network-event-broker:** Network-event-broker now supports emitting network data in JSON format.
 
-- **Photon OS Container Builder**: The `cntrctl` tool in Photon OS 5.0 allows you to build a lightweight Photon OS container. You can use this to build an isolated environment to run various Photon OS test cases. 
+- **Photon OS Container Builder**: The `cntrctl` tool in Photon OS 5.0 allows you to build a lightweight Photon OS container. 
 
 
 - **Kernel-Version Update:** The following Kernel flavors are updated to kernel version 6.1.10 in Photon OS:  
