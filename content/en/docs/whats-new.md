@@ -110,6 +110,7 @@ Photon OS 5.0  provides enhancements in Network Configuration Manager, PMD-nextg
 	- `sizepercent`: specifies the size of the partition in percent of the total disk space. 
 	- `repos`: Specifies the RPM repositories to install the RPMs.
 - Support for A/B Partition System: Photon OS 5.0 supports seamless updates and rollback with the A/B storage partition system.
+- **Kickstart Network Configuration**: Improved flexibility for network configuration that allows multiple interfaces and facilitates better handling of the VLAN interfaces. 
 
 
 ### Package Updates:
