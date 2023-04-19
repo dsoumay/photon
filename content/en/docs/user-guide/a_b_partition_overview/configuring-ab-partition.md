@@ -80,8 +80,10 @@ To use the A/B partition system, ensure the following prerequisites:
 	
 	```   
 
-You can use the `abupdate init` command to auto-populate the field. However, it is recommended that you manually enter the field for better accuracy.
+You can use the `abupdate init` command to auto-populate all the fields. However, it is recommended that you manually enter the fields for better accuracy.
 
+
+**Note**: Persistent or shared partitions that exist outside the active and inactive partitions are also supported in the A/B partition system. You need not specify the persistent or shared partitions in the configuration files.
 
 
 
