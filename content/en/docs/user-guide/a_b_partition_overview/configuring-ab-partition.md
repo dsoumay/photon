@@ -3,14 +3,14 @@ title:  Configuring A/B Partition System
 weight: 2
 ---
 
-You need to enable and configure the A/B partition system to use it for Photon OS updates and modifications. 
+You need to create a shadow partition set and configure the A/B partition system to use it for Photon OS updates and modifications. 
 
 To use the A/B partition system, ensure the following prerequisites:
 
 
 - If you boot with BIOS, only a root filesystem pair is needed. If you boot with UEFI, an EFI partition pair is also needed.
 
-- In the kickstart configuration file, when you create a partition, set the value of the `ab` parameter as `true` to create a shadow partition of the user-defined partition.
+- In the kickstart configuration file, when you create a partition, set the value of the `ab` parameter as `true` to create a shadow partition set of the user-defined partition set.
 
 	To know more about the kickstart configuration, see the following page: [Kickstart Support in Photon OS](https://vmware.github.io/photon/docs/user-guide/working-with-kickstart/)
 
@@ -83,7 +83,7 @@ To use the A/B partition system, ensure the following prerequisites:
 You can use the `abupdate init` command to auto-populate all the fields. However, it is recommended that you manually enter the fields for better accuracy.
 
 
-**Note**: Persistent or shared partitions that exist outside the active and inactive partitions are also supported in the A/B partition system. You need not specify the persistent or shared partitions in the configuration files.
+**Note**: Persistent or shared partitions that exist outside the active and inactive partition sets are also supported in the A/B partition system. You need not specify the persistent or shared partitions in the configuration files.
 
 
 
