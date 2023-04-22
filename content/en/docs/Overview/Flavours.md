@@ -28,10 +28,16 @@ In Photon OS 5.0, the `linux-rt` kernel flavor comes with the following improvem
 
 	- **Debugging Enhancements:**: Debugging enhancements are achieved with the following improvements:
 
-		- To aid with latency tuning and debugging, osnoise, and timerlat latency tracers are enabled in the `linux-rt` kernel.
+		- To aid with latency tuning and debugging, osnoise and timerlat latency tracers are enabled in the `linux-rt` kernel.
 		- Enabled Kernel's hung-task detector in tuned real-time profile's configuration.
 
 	- **Hardware Enablement**: Support is added for Intel Sapphire Rapids CPUs, including its Telco-specific 5G ISA.
+
+	- **Driver Updates**: Updated out-of-tree Intel network drivers to the following versions:
+		- i40e – v2.15.9
+		- iavf – v4.5.3
+		- ice – v1.9.11
+
 
 
 
