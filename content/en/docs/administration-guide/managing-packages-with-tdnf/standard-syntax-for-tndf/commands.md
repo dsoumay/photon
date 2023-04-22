@@ -4,7 +4,7 @@ weight: 1
 ---
 **autoremove [pkg-spec]**: This command removes a package with its dependencies. This is similar to the `erase`/`remove` command. You can use this command to remove the packages that are no longer needed regardless of the `clean_requirements_on_remove` option.
 
-`autoremove` without any arguments removes all automatically installed packages that are not required.
+`autoremove` without any arguments removes all automatically installed packages that are no longer required.
 
 **check**: Checks for problems in installed and available packages for all enabled repositories. The command has no arguments. You can use ``--enablerepo`` and ``--disablerepo`` to control the repos used. Supported in Photon OS 2.0 (only).
 
@@ -107,9 +107,9 @@ When you remove a package, by default, `tdnf` does not remove the dependencies t
 
 There are five sub-commands or arguments that you can use with the history command:
 
-`history init/update`: The sub-commands `init` or `update` initiates the history database. It is recommended that you use these commands right after `tdnf` is installed. If the database is not already initiated, any altering commands such as `install` or `erase` initiates the database.
+`history init/update`: The sub-commands `init` or `update` initializes the history database. It is recommended that you use these commands right after `tdnf` is installed. If the database is not already initialized, any altering commands such as `install` or `erase` initializes the database.
 
-If the database is already initiated, the commands have no effect unless an application such as an RPM command adds or removes any packages after the last recorded transaction.
+If the database is already initialized, the commands have no effect unless an application such as an RPM command adds or removes any packages after the last recorded transaction.
 
 `history list`: This command lists the history of transactions. Note that this result is similar when you use the `history` command without an argument or sub-command. 
 
@@ -229,7 +229,7 @@ added: gdb-10.1-2.ph4.aarch64
 
 `Dependencies`: The `undo` and `redo` actions might need to install additional depedencies apart from the previously existing packages. For example, when you redo a transaction that installs a single package which was earlier removed along with its depedencies, the command also attempts to install the dependecies. 
 
-Note that this is not an issue for the rollback because the entire set of packages are restored assuming that the dependecies are also satisfied at the state.
+Note that this is not an issue for the `rollback` command because the entire set of packages is restored assuming that the dependecies are also satisfied at the state.
 
 **info**: This command displays information about packages. It can take the name of a package. Or it can take one of the following arguments: all, available, installed, extras, obsoletes, recent, upgrades. The following are examples:
 
@@ -274,7 +274,7 @@ To list enabled repositories, run the following command:
 	Refreshing metadata for: 'VMware Photon Linux 1.0(x86_64)'
 	Metadata cache created.
 
-**mark install|remove pkg_spec**: You can use this command to mark whether a package is auto-installed. You can unmark a package as auto-installed to install the package or mark the package as auto-install to remove it.
+**mark install|remove pkg_spec**: You can use these commands to specify and mark a package. Use the `mark install` command to mark a package that is not auto-installed. Use the `mark remove` command to mark a package that is auto-installed.
 
 **provides**: This command finds the packages that provide the package that you supply as an argument. The following is an example: 
 

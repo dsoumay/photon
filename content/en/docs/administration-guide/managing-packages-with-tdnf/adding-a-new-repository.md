@@ -45,12 +45,12 @@ The repository settings details are as follows:
 - The `baseurl` is a URL for the repository's repodata directory. For a repository on a local server that can be accessed directly or mounted as a file system, the base URL can be a file referenced by `file://`. Example:  
 
 	`baseurl=file:///server/repo/`   <p>
-You can also use the following protocols: `http:`,  `https:`, `ftp:`, `ftps:`, `file:`
+You can also use the following protocols: `http:`  `https:` `ftp:` `ftps:` `file:`
 You can add multiple URLs separated by commas. If download fails for one URL, the next URL is used. 
 The URL can contain the variables `$releasever` and `$basearch`, which refers to the current release of the distribution (for example, 5.0) and the architecture (for example, x86_64 or aarch64). 
 
 
-- By using `metalink`, you can point to multiple URLs to download the `repomd.xml` file. A sample metalink file is as follows:
+- You can use the metalink file to set hashes and priorities for URLs. To use the metalink feature, the tdnf-metalink plugin must be installed and loaded. A sample metalink file is as follows:
 
     `cat metalink`
 
@@ -87,7 +87,7 @@ The URL can contain the variables `$releasever` and `$basearch`, which refers to
     ```
 
     
-  In the metalink file, provide the preference for each url, so `tdnf` first tries to sync the repository data from the mirror which has the highest preference. If it fails due to any reason, `tdnf` will sync to the next mirror url with the lower preference than before one.
+  In the metalink file, provide the preference for each url, so `tdnf` first tries to sync the repository data from the mirror which has the highest preference. If it fails due to any reason, `tdnf` syncs to the next mirror url with the lower preference than before one.
 
   Note: Ensure that the shasum for `respomd.xml` in all the mirrors should be same.
 
@@ -97,7 +97,7 @@ The URL can contain the variables `$releasever` and `$basearch`, which refers to
 
 - The `gpgcheck` setting specifies whether to check the GPG signature. The default value is `true`. If you enable this setting, set the `gpgkey`.
 
-- The `repo_gpgcheck` setting allows `tdnf` to verify the signature of a repository metadata before downloading the repository artifacts. When `repo_gpgcheck` is set to `1` in the tdnf.conf file, all repositories will be checked for the metadata signatures. The default value is `0`.
+- The `repo_gpgcheck` setting allows `tdnf` to verify the signature of a repository metadata before downloading the repository artifacts. When `repo_gpgcheck` is set to `1` in the tdnf.conf file, all repositories are checked for the metadata signatures. The default value is `0`. To use the `repo_gpgcheck` feature, the tdnf `repogpgcheck` plugin must be installed and enabled.
   If a repository has `repo_gpgcheck` enabled,a `repomd.xml.asc` file is downloaded and the API equivalent of `gpg --verify repomd.xml.asc repomd.xml` is done. If `repomd.xml.asc` is missing, repository is deactivated. If `repomd.xml.asc` fails to verify, the repository is deactivated. The public key for verification must be manually installed for the initial implementation.
 
   Note: Ensure that you have installed `libgcrypt` for this implementation.
@@ -119,7 +119,7 @@ The URL can contain the variables `$releasever` and `$basearch`, which refers to
 
 - The `timeout` setting specifies the number of seconds that a download is allowed to take or `0` for no limit. Note that this is an absolute value and may interrupt large file downloads.
 
-- The `minrate` setting specifies the limit below which if the download rate falls, `tdnf` will abort the download. The default value is `0 `(`no limit`).
+- The `minrate` setting specifies the limit below which if the download rate falls, `tdnf` aborts the download. The default value is `0 `(`no limit`).
 
 - The `maxrate` setting specifies the maximum download rate (throttle). The default value is `0 `(`no limit`).
 
