@@ -8,9 +8,9 @@ The Photon OS Documentation provides information about how to install, configure
 
  ![PhotonOS Logo](/docs/images/Photon-4-bootsplash.png)
 
-**Product version: 4.0**
+**Product version: 5.0**
 
-This documentation applies to all 4.0.x releases.
+This documentation applies to all 5.0.x releases.
 
 ## Intended Audiences
 

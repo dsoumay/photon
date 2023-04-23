@@ -3,7 +3,7 @@ title: Downloading Photon OS
 weight: 1
 ---
 
-Detailed instructions for obtaining Photon OS 4.0 are located at:  [https://github.com/vmware/photon/wiki/Downloading-Photon-OS](https://github.com/vmware/photon/wiki/Downloading-Photon-OS)
+Detailed instructions for obtaining Photon OS 5.0 are located at:  [https://github.com/vmware/photon/wiki/Downloading-Photon-OS](https://github.com/vmware/photon/wiki/Downloading-Photon-OS)
 
 ## Download Formats ####
 

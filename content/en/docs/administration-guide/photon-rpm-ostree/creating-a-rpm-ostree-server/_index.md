@@ -3,7 +3,7 @@ title:  Creating a Server
 weight: 6
 ---
 
-Photon OS 4.0 includes a `rpm-ostree-repo` package that can be installed on a VM.
+Photon OS includes a `rpm-ostree-repo` package that can be installed on a VM.
 
 This package provides an automated script that creates a repo tree that acts as a server.
 

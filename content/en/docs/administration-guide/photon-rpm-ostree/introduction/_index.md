@@ -56,11 +56,11 @@ If you are just interested in deploying a host system and keeping it up to date,
 
 If you want to install your own server and experiment with customizing packages for your Photon hosts, then read [Installing a Photon RPM-OSTree server](/docs/administration-guide/photon-rpm-ostree/creating-a-rpm-ostree-server/) onwards. There are references to the concepts discussed throughout the book, if you need to understand them better.  
 
-## RPM OSTree in Photon OS 4.0
+## RPM OSTree in Photon OS
 
-This section is relevant to RPM OSTree in Photon OS 4.0.
+This section is relevant to RPM OSTree in Photon OS.
 
-Version 4.0 supports the following features:
+Photon OS supports the following features:
 
 - Upgrade
 - Rollback

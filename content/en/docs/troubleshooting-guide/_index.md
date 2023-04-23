@@ -5,9 +5,9 @@ weight: 70
 
 The Photon OS *Troubleshooting Guide* provides solutions for common problems that you might encounter while using Photon OS.
 
-**Product version: 4.0**
+**Product version: 5.0**
 
-This documentation applies to all 4.0.x releases.
+This documentation applies to all 5.0.x releases.
 
 ## Intended Audiences
 

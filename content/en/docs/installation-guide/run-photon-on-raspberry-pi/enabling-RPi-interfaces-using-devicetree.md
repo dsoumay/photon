@@ -3,7 +3,7 @@ title:  Enabling Raspberry Pi Interfaces using Device Tree
 weight: 3
 ---
 
-Photon OS RPI images from Photon 4.0 has Device Tree Overlay support. And these images have compiled Overlays to enable/disable Rpi Interface. Perform the following:
+Photon OS RPI images from Photon OS has Device Tree Overlay support. And these images have compiled Overlays to enable/disable Rpi Interface. Perform the following:
 
 **SPI Interface**:
 Execute following commands to enable SPI Interface:

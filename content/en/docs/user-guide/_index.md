@@ -7,9 +7,9 @@ The Photon OS *User Guide* provides information about how to use Photon OS as a 
 
 The *User Guide* covers the basics of setting up a Network PXE Boot Server, working with Kickstart and Kubernetes, and mounting remote file systems.
 
-**Product version: 4.0**
+**Product version: 5.0**
 
-This documentation applies to all 4.0.x releases.
+This documentation applies to all 5.0.x releases.
 
 ## Intended Audiences
 

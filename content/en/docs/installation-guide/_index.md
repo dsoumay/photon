@@ -5,9 +5,9 @@ weight: 30
 
 The Photon OS *Installation Guide* provides information about how administrators can install Photon OS.
 
-**Product version: 4.0**
+**Product version: 5.0**
 
-This documentation applies to all 4.0.x releases.
+This documentation applies to all 5.0.x releases.
 
 ## Intended Audiences
 
