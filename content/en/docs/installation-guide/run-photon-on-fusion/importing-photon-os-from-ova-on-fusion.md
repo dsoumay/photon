@@ -1,5 +1,5 @@
 ---
-title:  Importing the OVA for Photon OS 4.0
+title:  Importing the OVA for Photon OS
 weight: 2
 ---
 

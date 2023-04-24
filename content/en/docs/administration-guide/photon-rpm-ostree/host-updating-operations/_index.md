@@ -33,7 +33,7 @@ To check if there are any updates available, one would execute:
 
 ```console
 root@photon-host-def [ ~ ]# rpm-ostree upgrade
-Updating from: photon:photon/4.0/x86_64/minimal
+Updating from: photon:photon/5.0/x86_64/minimal
 
 No upgrade available.
 ```
@@ -44,7 +44,7 @@ To check if there are any new updates without actually applying them, we will pa
 
 ```console
 root@photon-host [ ~ ]# rpm-ostree upgrade --check-diff
-Updating from: photon:photon/4.0/x86_64/minimal
+Updating from: photon:photon/5.0/x86_64/minimal
 
 8 metadata, 13 content objects fetched; 1026 KiB transferred in 0 seconds
 +gawk-4.1.3-2.ph1.x86_64
@@ -60,101 +60,101 @@ root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree upgrade --allow-downgrade
 Receiving metadata objects: 0/(estimating) -/s 0 bytes... done
 Staging deployment... done
 Downgraded:
-  audit 2.8.5-6.ph4 -> 2.8.5-3.ph4
-  cloud-init 20.4.1-1.ph4 -> 20.3-2.ph4
-  cpio 2.13-3.ph4 -> 2.13-1.ph4
-  curl 7.74.0-1.ph4 -> 7.72.0-2.ph4
-  curl-libs 7.74.0-1.ph4 -> 7.72.0-2.ph4
-  cyrus-sasl 2.1.27-4.ph4 -> 2.1.27-3.ph4
-  dhcp-client 4.4.2-2.ph4 -> 4.4.2-1.ph4
-  dhcp-libs 4.4.2-2.ph4 -> 4.4.2-1.ph4
-  dracut 050-7.ph4 -> 050-5.ph4
-  dracut-tools 050-7.ph4 -> 050-5.ph4
-  file 5.39-2.ph4 -> 5.39-1.ph4
-  file-libs 5.39-2.ph4 -> 5.39-1.ph4
-  gdbm 1.19-1.ph4 -> 1.18.1-1.ph4
-  glibc 2.32-2.ph4 -> 2.32-1.ph4
-  glibc-iconv 2.32-2.ph4 -> 2.32-1.ph4
-  gobject-introspection 1.66.0-3.ph4 -> 1.66.0-1.ph4
-  grub2-theme 4.0-2.ph4 -> 4.0-1.ph4
-  grub2-theme-ostree 4.0-2.ph4 -> 4.0-1.ph4
-  iproute2 5.10.0-1.ph4 -> 5.8.0-1.ph4
-  iptables 1.8.7-1.ph4 -> 1.8.4-1.ph4
-  json-c 0.15-3.ph4 -> 0.15-2.ph4
-  libgcc 10.2.0-1.ph4 -> 8.4.0-1.ph4
-  libmetalink 0.1.3-3.ph4 -> 0.1.3-2.ph4
-  libmodulemd 2.11.0-1.ph4 -> 2.9.4-1.ph4
-  librepo 1.12.1-4.ph4 -> 1.12.1-3.ph4
-  libsepol 3.1-2.ph4 -> 3.1-1.ph4
-  libsolv 0.6.35-7.ph4 -> 0.6.35-5.ph4
-  libssh2 1.9.0-3.ph4 -> 1.9.0-2.ph4
-  libstdc++ 10.2.0-1.ph4 -> 8.4.0-1.ph4
-  libxml2 2.9.10-6.ph4 -> 2.9.10-3.ph4
-  libxml2-devel 2.9.10-6.ph4 -> 2.9.10-3.ph4
-  libxslt 1.1.34-2.ph4 -> 1.1.34-1.ph4
-  linux 5.10.4-15.ph4 -> 5.9.0-3.ph4
-  ncurses 6.2-3.ph4 -> 6.2-2.ph4
-  ncurses-libs 6.2-3.ph4 -> 6.2-2.ph4
-  ncurses-terminfo 6.2-3.ph4 -> 6.2-2.ph4
-  nss 3.57-2.ph4 -> 3.57-1.ph4
-  nss-libs 3.57-2.ph4 -> 3.57-1.ph4
-  open-vm-tools 11.2.5-1.ph4 -> 11.1.5-4.ph4
-  openldap 2.4.53-3.ph4 -> 2.4.53-2.ph4
-  openssl 1.1.1i-2.ph4 -> 1.1.1g-3.ph4
-  pcre 8.44-2.ph4 -> 8.44-1.ph4
-  pcre-libs 8.44-2.ph4 -> 8.44-1.ph4
-  python3 3.9.1-2.ph4 -> 3.8.6-1.ph4
-  python3-PyYAML 5.4.1-1.ph4 -> 5.3.1-1.ph4
-  python3-attrs 20.3.0-2.ph4 -> 20.2.0-2.ph4
-  python3-cryptography 3.2.1-1.ph4 -> 3.1.1-2.ph4
-  python3-gobject-introspection 1.66.0-3.ph4 -> 1.66.0-1.ph4
-  python3-libs 3.9.1-2.ph4 -> 3.8.6-1.ph4
-  python3-packaging 20.4-3.ph4 -> 20.4-2.ph4
-  python3-pyrsistent 0.17.3-2.ph4 -> 0.17.3-1.ph4
-  python3-setuptools 3.9.1-2.ph4 -> 3.8.6-1.ph4
-  python3-urllib3 1.25.11-1.ph4 -> 1.25.10-2.ph4
-  python3-xml 3.9.1-2.ph4 -> 3.8.6-1.ph4
-  rpm 4.16.1.2-1.ph4 -> 4.14.2-11.ph4
-  rpm-libs 4.16.1.2-1.ph4 -> 4.14.2-11.ph4
-  rpm-ostree 2020.5-5.ph4 -> 2020.5-4.ph4
-  shadow 4.8.1-3.ph4 -> 4.8.1-2.ph4
-  shadow-tools 4.8.1-3.ph4 -> 4.8.1-2.ph4
-  sudo 1.9.5-1.ph4 -> 1.8.30-2.ph4
-  systemd 247.3-1.ph4 -> 245.5-3.ph4
-  util-linux 2.36-2.ph4 -> 2.36-1.ph4
-  util-linux-libs 2.36-2.ph4 -> 2.36-1.ph4
+  audit 2.8.5-6.ph5 -> 2.8.5-3.ph5
+  cloud-init 20.4.1-1.ph5 -> 20.3-2.ph5
+  cpio 2.13-3.ph5 -> 2.13-1.ph5
+  curl 7.74.0-1.ph5 -> 7.72.0-2.ph5
+  curl-libs 7.74.0-1.ph5 -> 7.72.0-2.ph5
+  cyrus-sasl 2.1.27-4.ph5 -> 2.1.27-3.ph5
+  dhcp-client 4.4.2-2.ph5 -> 4.4.2-1.ph5
+  dhcp-libs 4.4.2-2.ph5 -> 4.4.2-1.ph5
+  dracut 050-7.ph5 -> 050-5.ph5
+  dracut-tools 050-7.ph5 -> 050-5.ph5
+  file 5.39-2.ph5 -> 5.39-1.ph5
+  file-libs 5.39-2.ph5 -> 5.39-1.ph5
+  gdbm 1.19-1.ph5 -> 1.18.1-1.ph5
+  glibc 2.32-2.ph5 -> 2.32-1.ph5
+  glibc-iconv 2.32-2.ph5 -> 2.32-1.ph5
+  gobject-introspection 1.66.0-3.ph5 -> 1.66.0-1.ph5
+  grub2-theme 5.0-2.ph5 -> 5.0-1.ph5
+  grub2-theme-ostree 5.0-2.ph5 -> 5.0-1.ph5
+  iproute2 5.10.0-1.ph5 -> 5.8.0-1.ph5
+  iptables 1.8.7-1.ph5 -> 1.8.4-1.ph5
+  json-c 0.15-3.ph5 -> 0.15-2.ph5
+  libgcc 10.2.0-1.ph5 -> 8.4.0-1.ph5
+  libmetalink 0.1.3-3.ph5 -> 0.1.3-2.ph5
+  libmodulemd 2.11.0-1.ph5 -> 2.9.4-1.ph5
+  librepo 1.12.1-4.ph5 -> 1.12.1-3.ph5
+  libsepol 3.1-2.ph5 -> 3.1-1.ph5
+  libsolv 0.6.35-7.ph5 -> 0.6.35-5.ph5
+  libssh2 1.9.0-3.ph5 -> 1.9.0-2.ph5
+  libstdc++ 10.2.0-1.ph5 -> 8.4.0-1.ph5
+  libxml2 2.9.10-6.ph5 -> 2.9.10-3.ph5
+  libxml2-devel 2.9.10-6.ph5 -> 2.9.10-3.ph5
+  libxslt 1.1.34-2.ph5 -> 1.1.34-1.ph5
+  linux 5.10.4-15.ph5 -> 5.9.0-3.ph5
+  ncurses 6.2-3.ph5 -> 6.2-2.ph5
+  ncurses-libs 6.2-3.ph5 -> 6.2-2.ph5
+  ncurses-terminfo 6.2-3.ph5 -> 6.2-2.ph5
+  nss 3.57-2.ph5 -> 3.57-1.ph5
+  nss-libs 3.57-2.ph5 -> 3.57-1.ph5
+  open-vm-tools 11.2.5-1.ph5 -> 11.1.5-4.ph5
+  openldap 2.4.53-3.ph5 -> 2.4.53-2.ph5
+  openssl 1.1.1i-2.ph5 -> 1.1.1g-3.ph5
+  pcre 8.44-2.ph5 -> 8.44-1.ph5
+  pcre-libs 8.44-2.ph5 -> 8.44-1.ph5
+  python3 3.9.1-2.ph5 -> 3.8.6-1.ph5
+  python3-PyYAML 5.4.1-1.ph5 -> 5.3.1-1.ph5
+  python3-attrs 20.3.0-2.ph5 -> 20.2.0-2.ph5
+  python3-cryptography 3.2.1-1.ph5 -> 3.1.1-2.ph5
+  python3-gobject-introspection 1.66.0-3.ph5 -> 1.66.0-1.ph5
+  python3-libs 3.9.1-2.ph5 -> 3.8.6-1.ph5
+  python3-packaging 20.4-3.ph5 -> 20.4-2.ph5
+  python3-pyrsistent 0.17.3-2.ph5 -> 0.17.3-1.ph5
+  python3-setuptools 3.9.1-2.ph5 -> 3.8.6-1.ph5
+  python3-urllib3 1.25.11-1.ph5 -> 1.25.10-2.ph5
+  python3-xml 3.9.1-2.ph5 -> 3.8.6-1.ph5
+  rpm 4.16.1.2-1.ph5 -> 4.14.2-11.ph5
+  rpm-libs 4.16.1.2-1.ph5 -> 4.14.2-11.ph5
+  rpm-ostree 2020.5-5.ph5 -> 2020.5-4.ph5
+  shadow 4.8.1-3.ph5 -> 4.8.1-2.ph5
+  shadow-tools 4.8.1-3.ph5 -> 4.8.1-2.ph5
+  sudo 1.9.5-1.ph5 -> 1.8.30-2.ph5
+  systemd 247.3-1.ph5 -> 245.5-3.ph5
+  util-linux 2.36-2.ph5 -> 2.36-1.ph5
+  util-linux-libs 2.36-2.ph5 -> 2.36-1.ph5
 Removed:
-  libpcap-1.10.0-1.ph4.x86_64
-  python3-Pygments-2.7.2-2.ph4.noarch
-  python3-alabaster-0.7.12-1.ph4.noarch
-  python3-babel-2.8.0-3.ph4.noarch
-  python3-docutils-0.16-1.ph4.noarch
-  python3-imagesize-1.2.0-2.ph4.noarch
-  python3-pytz-2020.4-2.ph4.noarch
-  python3-snowballstemmer-2.0.0-1.ph4.noarch
-  python3-sphinx-3.3.0-2.ph4.noarch
-  python3-sphinxcontrib-applehelp-1.0.2-1.ph4.noarch
-  python3-sphinxcontrib-devhelp-1.0.2-1.ph4.noarch
-  python3-sphinxcontrib-htmlhelp-1.0.3-1.ph4.noarch
-  python3-sphinxcontrib-jsmath-1.0.1-1.ph4.noarch
-  python3-sphinxcontrib-qthelp-1.0.3-1.ph4.noarch
-  python3-sphinxcontrib-serializinghtml-1.1.4-1.ph4.noarch
-  python3-typing-3.7.4.3-1.ph4.noarch
-  systemd-libs-247.3-1.ph4.x86_64
-  systemd-pam-247.3-1.ph4.x86_64
-  systemd-rpm-macros-247.3-1.ph4.noarch
-  systemd-udev-247.3-1.ph4.x86_64
+  libpcap-1.10.0-1.ph5.x86_64
+  python3-Pygments-2.7.2-2.ph5.noarch
+  python3-alabaster-0.7.12-1.ph5.noarch
+  python3-babel-2.8.0-3.ph5.noarch
+  python3-docutils-0.16-1.ph5.noarch
+  python3-imagesize-1.2.0-2.ph5.noarch
+  python3-pytz-2020.4-2.ph5.noarch
+  python3-snowballstemmer-2.0.0-1.ph5.noarch
+  python3-sphinx-3.3.0-2.ph5.noarch
+  python3-sphinxcontrib-applehelp-1.0.2-1.ph5.noarch
+  python3-sphinxcontrib-devhelp-1.0.2-1.ph5.noarch
+  python3-sphinxcontrib-htmlhelp-1.0.3-1.ph5.noarch
+  python3-sphinxcontrib-jsmath-1.0.1-1.ph5.noarch
+  python3-sphinxcontrib-qthelp-1.0.3-1.ph5.noarch
+  python3-sphinxcontrib-serializinghtml-1.1.4-1.ph5.noarch
+  python3-typing-3.7.4.3-1.ph5.noarch
+  systemd-libs-247.3-1.ph5.x86_64
+  systemd-pam-247.3-1.ph5.x86_64
+  systemd-rpm-macros-247.3-1.ph5.noarch
+  systemd-udev-247.3-1.ph5.x86_64
 Run "systemctl reboot" to start a reboot
 ```
 
 By looking at the commit history, notice that the new commit has the original commit as parent.
 
 ```console
-root@photon-7c2d910d79e9 [ ~ ]# ostree log photon/4.0/x86_64/minimal
+root@photon-7c2d910d79e9 [ ~ ]# ostree log photon/5.0/x86_64/minimal
 commit 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
 ContentChecksum:  c7956cedc5c1b8c07a06e10789c17364a5b7a4b970daab64f3398b7c42bd97d9
 Date:  2020-11-04 02:21:47 +0000
-Version: 4.0_minimal
+Version: 5.0_minimal
 (no subject)
 ```   
 
@@ -164,7 +164,7 @@ Notice that now we have a new reference, that corresponds to the newly deployed 
 ```console
 root@photon-7c2d910d79e9 [ ~ ]# ostree refs
 ostree/0/1/1
-photon:photon/4.0/x86_64/minimal
+photon:photon/5.0/x86_64/minimal
 ostree/0/1/0
 ```
 
@@ -175,13 +175,13 @@ Let us look at the status. The new filetree version .1 has the expected Commit I
 root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status
 State: idle
 Deployments:
-  ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2020-11-04T02:21:47Z)
+  ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2020-11-04T02:21:47Z)
 Commit: 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
   Diff: 63 downgraded, 20 removed
 
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 ```    
 
@@ -195,13 +195,13 @@ Let's look again at the status. It's identical, just that the star is next to th
 root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status
 State: idle
 Deployments:
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2020-11-04T02:21:47Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2020-11-04T02:21:47Z)
 Commit: 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
   Diff: 63 downgraded, 20 removed
 
-  ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+  ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 ```
 
@@ -1176,90 +1176,90 @@ root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree db diff 820b 965c
 ostree diff commit from: 820b (820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88)
 ostree diff commit to:   965c (965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f)
 Upgraded:
-audit 2.8.5-3.ph4 -> 2.8.5-6.ph4
-cloud-init 20.3-2.ph4 -> 20.4.1-1.ph4
-cpio 2.13-1.ph4 -> 2.13-3.ph4
-curl 7.72.0-2.ph4 -> 7.74.0-1.ph4
-curl-libs 7.72.0-2.ph4 -> 7.74.0-1.ph4
-cyrus-sasl 2.1.27-3.ph4 -> 2.1.27-4.ph4
-dhcp-client 4.4.2-1.ph4 -> 4.4.2-2.ph4
-dhcp-libs 4.4.2-1.ph4 -> 4.4.2-2.ph4
-dracut 050-5.ph4 -> 050-7.ph4
-dracut-tools 050-5.ph4 -> 050-7.ph4
-file 5.39-1.ph4 -> 5.39-2.ph4
-file-libs 5.39-1.ph4 -> 5.39-2.ph4
-gdbm 1.18.1-1.ph4 -> 1.19-1.ph4
-glibc 2.32-1.ph4 -> 2.32-2.ph4
-glibc-iconv 2.32-1.ph4 -> 2.32-2.ph4
-gobject-introspection 1.66.0-1.ph4 -> 1.66.0-3.ph4
-grub2-theme 4.0-1.ph4 -> 4.0-2.ph4
-grub2-theme-ostree 4.0-1.ph4 -> 4.0-2.ph4
-iproute2 5.8.0-1.ph4 -> 5.10.0-1.ph4
-iptables 1.8.4-1.ph4 -> 1.8.7-1.ph4
-json-c 0.15-2.ph4 -> 0.15-3.ph4
-libgcc 8.4.0-1.ph4 -> 10.2.0-1.ph4
-libmetalink 0.1.3-2.ph4 -> 0.1.3-3.ph4
-libmodulemd 2.9.4-1.ph4 -> 2.11.0-1.ph4
-librepo 1.12.1-3.ph4 -> 1.12.1-4.ph4
-libsepol 3.1-1.ph4 -> 3.1-2.ph4
-libsolv 0.6.35-5.ph4 -> 0.6.35-7.ph4
-libssh2 1.9.0-2.ph4 -> 1.9.0-3.ph4
-libstdc++ 8.4.0-1.ph4 -> 10.2.0-1.ph4
-libxml2 2.9.10-3.ph4 -> 2.9.10-6.ph4
-libxml2-devel 2.9.10-3.ph4 -> 2.9.10-6.ph4
-libxslt 1.1.34-1.ph4 -> 1.1.34-2.ph4
-linux 5.9.0-3.ph4 -> 5.10.4-15.ph4
-ncurses 6.2-2.ph4 -> 6.2-3.ph4
-ncurses-libs 6.2-2.ph4 -> 6.2-3.ph4
-ncurses-terminfo 6.2-2.ph4 -> 6.2-3.ph4
-nss 3.57-1.ph4 -> 3.57-2.ph4
-nss-libs 3.57-1.ph4 -> 3.57-2.ph4
-open-vm-tools 11.1.5-4.ph4 -> 11.2.5-1.ph4
-openldap 2.4.53-2.ph4 -> 2.4.53-3.ph4
-openssl 1.1.1g-3.ph4 -> 1.1.1i-2.ph4
-pcre 8.44-1.ph4 -> 8.44-2.ph4
-pcre-libs 8.44-1.ph4 -> 8.44-2.ph4
-python3 3.8.6-1.ph4 -> 3.9.1-2.ph4
-python3-PyYAML 5.3.1-1.ph4 -> 5.4.1-1.ph4
-python3-attrs 20.2.0-2.ph4 -> 20.3.0-2.ph4
-python3-cryptography 3.1.1-2.ph4 -> 3.2.1-1.ph4
-python3-gobject-introspection 1.66.0-1.ph4 -> 1.66.0-3.ph4
-python3-libs 3.8.6-1.ph4 -> 3.9.1-2.ph4
-python3-packaging 20.4-2.ph4 -> 20.4-3.ph4
-python3-pyrsistent 0.17.3-1.ph4 -> 0.17.3-2.ph4
-python3-setuptools 3.8.6-1.ph4 -> 3.9.1-2.ph4
-python3-urllib3 1.25.10-2.ph4 -> 1.25.11-1.ph4
-python3-xml 3.8.6-1.ph4 -> 3.9.1-2.ph4
-rpm 4.14.2-11.ph4 -> 4.16.1.2-1.ph4
-rpm-libs 4.14.2-11.ph4 -> 4.16.1.2-1.ph4
-rpm-ostree 2020.5-4.ph4 -> 2020.5-5.ph4
-shadow 4.8.1-2.ph4 -> 4.8.1-3.ph4
-shadow-tools 4.8.1-2.ph4 -> 4.8.1-3.ph4
-sudo 1.8.30-2.ph4 -> 1.9.5-1.ph4
-systemd 245.5-3.ph4 -> 247.3-1.ph4
-util-linux 2.36-1.ph4 -> 2.36-2.ph4
-util-linux-libs 2.36-1.ph4 -> 2.36-2.ph4
+audit 2.8.5-3.ph5 -> 2.8.5-6.ph5
+cloud-init 20.3-2.ph5 -> 20.4.1-1.ph5
+cpio 2.13-1.ph5 -> 2.13-3.ph5
+curl 7.72.0-2.ph5 -> 7.74.0-1.ph5
+curl-libs 7.72.0-2.ph5 -> 7.74.0-1.ph5
+cyrus-sasl 2.1.27-3.ph5 -> 2.1.27-4.ph5
+dhcp-client 4.4.2-1.ph5 -> 4.4.2-2.ph5
+dhcp-libs 4.4.2-1.ph5 -> 4.4.2-2.ph5
+dracut 050-5.ph5 -> 050-7.ph5
+dracut-tools 050-5.ph5 -> 050-7.ph5
+file 5.39-1.ph5 -> 5.39-2.ph5
+file-libs 5.39-1.ph5 -> 5.39-2.ph5
+gdbm 1.18.1-1.ph5 -> 1.19-1.ph5
+glibc 2.32-1.ph5 -> 2.32-2.ph5
+glibc-iconv 2.32-1.ph5 -> 2.32-2.ph5
+gobject-introspection 1.66.0-1.ph5 -> 1.66.0-3.ph5
+grub2-theme 5.0-1.ph5 -> 4.0-2.ph5
+grub2-theme-ostree 5.0-1.ph5 -> 5.0-2.ph5
+iproute2 5.8.0-1.ph5 -> 5.10.0-1.ph5
+iptables 1.8.4-1.ph5 -> 1.8.7-1.ph5
+json-c 0.15-2.ph5 -> 0.15-3.ph5
+libgcc 8.4.0-1.ph5 -> 10.2.0-1.ph5
+libmetalink 0.1.3-2.ph5 -> 0.1.3-3.ph5
+libmodulemd 2.9.4-1.ph5 -> 2.11.0-1.ph5
+librepo 1.12.1-3.ph5 -> 1.12.1-4.ph5
+libsepol 3.1-1.ph5 -> 3.1-2.ph5
+libsolv 0.6.35-5.ph5 -> 0.6.35-7.ph5
+libssh2 1.9.0-2.ph5 -> 1.9.0-3.ph5
+libstdc++ 8.4.0-1.ph5 -> 10.2.0-1.ph5
+libxml2 2.9.10-3.ph5 -> 2.9.10-6.ph5
+libxml2-devel 2.9.10-3.ph5 -> 2.9.10-6.ph5
+libxslt 1.1.34-1.ph5 -> 1.1.34-2.ph5
+linux 5.9.0-3.ph5 -> 5.10.4-15.ph5
+ncurses 6.2-2.ph5 -> 6.2-3.ph5
+ncurses-libs 6.2-2.ph5 -> 6.2-3.ph5
+ncurses-terminfo 6.2-2.ph5 -> 6.2-3.ph5
+nss 3.57-1.ph5 -> 3.57-2.ph5
+nss-libs 3.57-1.ph5 -> 3.57-2.ph5
+open-vm-tools 11.1.5-4.ph5 -> 11.2.5-1.ph5
+openldap 2.4.53-2.ph5 -> 2.4.53-3.ph5
+openssl 1.1.1g-3.ph5 -> 1.1.1i-2.ph5
+pcre 8.44-1.ph5 -> 8.44-2.ph5
+pcre-libs 8.44-1.ph5 -> 8.44-2.ph5
+python3 3.8.6-1.ph5 -> 3.9.1-2.ph5
+python3-PyYAML 5.3.1-1.ph5 -> 5.4.1-1.ph5
+python3-attrs 20.2.0-2.ph5 -> 20.3.0-2.ph5
+python3-cryptography 3.1.1-2.ph5 -> 3.2.1-1.ph5
+python3-gobject-introspection 1.66.0-1.ph5 -> 1.66.0-3.ph5
+python3-libs 3.8.6-1.ph5 -> 3.9.1-2.ph5
+python3-packaging 20.4-2.ph5 -> 20.4-3.ph5
+python3-pyrsistent 0.17.3-1.ph5 -> 0.17.3-2.ph5
+python3-setuptools 3.8.6-1.ph5 -> 3.9.1-2.ph5
+python3-urllib3 1.25.10-2.ph5 -> 1.25.11-1.ph5
+python3-xml 3.8.6-1.ph5 -> 3.9.1-2.ph5
+rpm 4.14.2-11.ph5 -> 4.16.1.2-1.ph5
+rpm-libs 4.14.2-11.ph5 -> 4.16.1.2-1.ph5
+rpm-ostree 2020.5-4.ph5 -> 2020.5-5.ph5
+shadow 4.8.1-2.ph5 -> 4.8.1-3.ph5
+shadow-tools 4.8.1-2.ph5 -> 4.8.1-3.ph5
+sudo 1.8.30-2.ph5 -> 1.9.5-1.ph5
+systemd 245.5-3.ph5 -> 247.3-1.ph5
+util-linux 2.36-1.ph5 -> 2.36-2.ph5
+util-linux-libs 2.36-1.ph5 -> 2.36-2.ph5
 Added:
-libpcap-1.10.0-1.ph4.x86_64
-python3-Pygments-2.7.2-2.ph4.noarch
-python3-alabaster-0.7.12-1.ph4.noarch
-python3-babel-2.8.0-3.ph4.noarch
-python3-docutils-0.16-1.ph4.noarch
-python3-imagesize-1.2.0-2.ph4.noarch
-python3-pytz-2020.4-2.ph4.noarch
-python3-snowballstemmer-2.0.0-1.ph4.noarch
-python3-sphinx-3.3.0-2.ph4.noarch
-python3-sphinxcontrib-applehelp-1.0.2-1.ph4.noarch
-python3-sphinxcontrib-devhelp-1.0.2-1.ph4.noarch
-python3-sphinxcontrib-htmlhelp-1.0.3-1.ph4.noarch
-python3-sphinxcontrib-jsmath-1.0.1-1.ph4.noarch
-python3-sphinxcontrib-qthelp-1.0.3-1.ph4.noarch
-python3-sphinxcontrib-serializinghtml-1.1.4-1.ph4.noarch
-python3-typing-3.7.4.3-1.ph4.noarch
-systemd-libs-247.3-1.ph4.x86_64
-systemd-pam-247.3-1.ph4.x86_64
-systemd-rpm-macros-247.3-1.ph4.noarch
-systemd-udev-247.3-1.ph4.x86_64
+libpcap-1.10.0-1.ph5.x86_64
+python3-Pygments-2.7.2-2.ph5.noarch
+python3-alabaster-0.7.12-1.ph5.noarch
+python3-babel-2.8.0-3.ph5.noarch
+python3-docutils-0.16-1.ph5.noarch
+python3-imagesize-1.2.0-2.ph5.noarch
+python3-pytz-2020.4-2.ph5.noarch
+python3-snowballstemmer-2.0.0-1.ph5.noarch
+python3-sphinx-3.3.0-2.ph5.noarch
+python3-sphinxcontrib-applehelp-1.0.2-1.ph5.noarch
+python3-sphinxcontrib-devhelp-1.0.2-1.ph5.noarch
+python3-sphinxcontrib-htmlhelp-1.0.3-1.ph5.noarch
+python3-sphinxcontrib-jsmath-1.0.1-1.ph5.noarch
+python3-sphinxcontrib-qthelp-1.0.3-1.ph5.noarch
+python3-sphinxcontrib-serializinghtml-1.1.4-1.ph5.noarch
+python3-typing-3.7.4.3-1.ph5.noarch
+systemd-libs-247.3-1.ph5.x86_64
+systemd-pam-247.3-1.ph5.x86_64
+systemd-rpm-macros-247.3-1.ph5.noarch
+systemd-udev-247.3-1.ph5.x86_64
 ```
 
 
@@ -1272,90 +1272,90 @@ root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree rollback
 Moving '965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f.0' to be first deployment
 Transaction complete; bootconfig swap: yes; deployment count change: 0
 Upgraded:
-  audit 2.8.5-3.ph4 -> 2.8.5-6.ph4
-  cloud-init 20.3-2.ph4 -> 20.4.1-1.ph4
-  cpio 2.13-1.ph4 -> 2.13-3.ph4
-  curl 7.72.0-2.ph4 -> 7.74.0-1.ph4
-  curl-libs 7.72.0-2.ph4 -> 7.74.0-1.ph4
-  cyrus-sasl 2.1.27-3.ph4 -> 2.1.27-4.ph4
-  dhcp-client 4.4.2-1.ph4 -> 4.4.2-2.ph4
-  dhcp-libs 4.4.2-1.ph4 -> 4.4.2-2.ph4
-  dracut 050-5.ph4 -> 050-7.ph4
-  dracut-tools 050-5.ph4 -> 050-7.ph4
-  file 5.39-1.ph4 -> 5.39-2.ph4
-  file-libs 5.39-1.ph4 -> 5.39-2.ph4
-  gdbm 1.18.1-1.ph4 -> 1.19-1.ph4
-  glibc 2.32-1.ph4 -> 2.32-2.ph4
-  glibc-iconv 2.32-1.ph4 -> 2.32-2.ph4
-  gobject-introspection 1.66.0-1.ph4 -> 1.66.0-3.ph4
-  grub2-theme 4.0-1.ph4 -> 4.0-2.ph4
-  grub2-theme-ostree 4.0-1.ph4 -> 4.0-2.ph4
-  iproute2 5.8.0-1.ph4 -> 5.10.0-1.ph4
-  iptables 1.8.4-1.ph4 -> 1.8.7-1.ph4
-  json-c 0.15-2.ph4 -> 0.15-3.ph4
-  libgcc 8.4.0-1.ph4 -> 10.2.0-1.ph4
-  libmetalink 0.1.3-2.ph4 -> 0.1.3-3.ph4
-  libmodulemd 2.9.4-1.ph4 -> 2.11.0-1.ph4
-  librepo 1.12.1-3.ph4 -> 1.12.1-4.ph4
-  libsepol 3.1-1.ph4 -> 3.1-2.ph4
-  libsolv 0.6.35-5.ph4 -> 0.6.35-7.ph4
-  libssh2 1.9.0-2.ph4 -> 1.9.0-3.ph4
-  libstdc++ 8.4.0-1.ph4 -> 10.2.0-1.ph4
-  libxml2 2.9.10-3.ph4 -> 2.9.10-6.ph4
-  libxml2-devel 2.9.10-3.ph4 -> 2.9.10-6.ph4
-  libxslt 1.1.34-1.ph4 -> 1.1.34-2.ph4
-  linux 5.9.0-3.ph4 -> 5.10.4-15.ph4
-  ncurses 6.2-2.ph4 -> 6.2-3.ph4
-  ncurses-libs 6.2-2.ph4 -> 6.2-3.ph4
-  ncurses-terminfo 6.2-2.ph4 -> 6.2-3.ph4
-  nss 3.57-1.ph4 -> 3.57-2.ph4
-  nss-libs 3.57-1.ph4 -> 3.57-2.ph4
-  open-vm-tools 11.1.5-4.ph4 -> 11.2.5-1.ph4
-  openldap 2.4.53-2.ph4 -> 2.4.53-3.ph4
-  openssl 1.1.1g-3.ph4 -> 1.1.1i-2.ph4
-  pcre 8.44-1.ph4 -> 8.44-2.ph4
-  pcre-libs 8.44-1.ph4 -> 8.44-2.ph4
-  python3 3.8.6-1.ph4 -> 3.9.1-2.ph4
-  python3-PyYAML 5.3.1-1.ph4 -> 5.4.1-1.ph4
-  python3-attrs 20.2.0-2.ph4 -> 20.3.0-2.ph4
-  python3-cryptography 3.1.1-2.ph4 -> 3.2.1-1.ph4
-  python3-gobject-introspection 1.66.0-1.ph4 -> 1.66.0-3.ph4
-  python3-libs 3.8.6-1.ph4 -> 3.9.1-2.ph4
-  python3-packaging 20.4-2.ph4 -> 20.4-3.ph4
-  python3-pyrsistent 0.17.3-1.ph4 -> 0.17.3-2.ph4
-  python3-setuptools 3.8.6-1.ph4 -> 3.9.1-2.ph4
-  python3-urllib3 1.25.10-2.ph4 -> 1.25.11-1.ph4
-  python3-xml 3.8.6-1.ph4 -> 3.9.1-2.ph4
-  rpm 4.14.2-11.ph4 -> 4.16.1.2-1.ph4
-  rpm-libs 4.14.2-11.ph4 -> 4.16.1.2-1.ph4
-  rpm-ostree 2020.5-4.ph4 -> 2020.5-5.ph4
-  shadow 4.8.1-2.ph4 -> 4.8.1-3.ph4
-  shadow-tools 4.8.1-2.ph4 -> 4.8.1-3.ph4
-  sudo 1.8.30-2.ph4 -> 1.9.5-1.ph4
-  systemd 245.5-3.ph4 -> 247.3-1.ph4
-  util-linux 2.36-1.ph4 -> 2.36-2.ph4
-  util-linux-libs 2.36-1.ph4 -> 2.36-2.ph4
+  audit 2.8.5-3.ph5 -> 2.8.5-6.ph5
+  cloud-init 20.3-2.ph5 -> 20.4.1-1.ph5
+  cpio 2.13-1.ph5 -> 2.13-3.ph5
+  curl 7.72.0-2.ph5 -> 7.74.0-1.ph5
+  curl-libs 7.72.0-2.ph5 -> 7.74.0-1.ph5
+  cyrus-sasl 2.1.27-3.ph5 -> 2.1.27-4.ph5
+  dhcp-client 4.4.2-1.ph5 -> 4.4.2-2.ph5
+  dhcp-libs 4.4.2-1.ph5 -> 4.4.2-2.ph5
+  dracut 050-5.ph5 -> 050-7.ph5
+  dracut-tools 050-5.ph5 -> 050-7.ph5
+  file 5.39-1.ph5 -> 5.39-2.ph5
+  file-libs 5.39-1.ph5 -> 5.39-2.ph5
+  gdbm 1.18.1-1.ph5 -> 1.19-1.ph5
+  glibc 2.32-1.ph5 -> 2.32-2.ph5
+  glibc-iconv 2.32-1.ph5 -> 2.32-2.ph5
+  gobject-introspection 1.66.0-1.ph5 -> 1.66.0-3.ph5
+  grub2-theme 5.0-1.ph5 -> 5.0-2.ph5
+  grub2-theme-ostree 5.0-1.ph5 -> 5.0-2.ph5
+  iproute2 5.8.0-1.ph5 -> 5.10.0-1.ph5
+  iptables 1.8.4-1.ph5 -> 1.8.7-1.ph5
+  json-c 0.15-2.ph5 -> 0.15-3.ph5
+  libgcc 8.4.0-1.ph5 -> 10.2.0-1.ph5
+  libmetalink 0.1.3-2.ph5 -> 0.1.3-3.ph5
+  libmodulemd 2.9.4-1.ph5 -> 2.11.0-1.ph5
+  librepo 1.12.1-3.ph5 -> 1.12.1-4.ph5
+  libsepol 3.1-1.ph5 -> 3.1-2.ph5
+  libsolv 0.6.35-5.ph5 -> 0.6.35-7.ph5
+  libssh2 1.9.0-2.ph5 -> 1.9.0-3.ph5
+  libstdc++ 8.4.0-1.ph5 -> 10.2.0-1.ph5
+  libxml2 2.9.10-3.ph5 -> 2.9.10-6.ph5
+  libxml2-devel 2.9.10-3.ph5 -> 2.9.10-6.ph5
+  libxslt 1.1.34-1.ph5 -> 1.1.34-2.ph5
+  linux 5.9.0-3.ph5 -> 5.10.4-15.ph5
+  ncurses 6.2-2.ph5 -> 6.2-3.ph5
+  ncurses-libs 6.2-2.ph5 -> 6.2-3.ph5
+  ncurses-terminfo 6.2-2.ph5 -> 6.2-3.ph5
+  nss 3.57-1.ph5 -> 3.57-2.ph5
+  nss-libs 3.57-1.ph5 -> 3.57-2.ph5
+  open-vm-tools 11.1.5-4.ph5 -> 11.2.5-1.ph5
+  openldap 2.4.53-2.ph5 -> 2.4.53-3.ph5
+  openssl 1.1.1g-3.ph5 -> 1.1.1i-2.ph5
+  pcre 8.44-1.ph5 -> 8.44-2.ph5
+  pcre-libs 8.44-1.ph5 -> 8.44-2.ph5
+  python3 3.8.6-1.ph5 -> 3.9.1-2.ph5
+  python3-PyYAML 5.3.1-1.ph5 -> 5.4.1-1.ph5
+  python3-attrs 20.2.0-2.ph5 -> 20.3.0-2.ph5
+  python3-cryptography 3.1.1-2.ph5 -> 3.2.1-1.ph5
+  python3-gobject-introspection 1.66.0-1.ph5 -> 1.66.0-3.ph5
+  python3-libs 3.8.6-1.ph5 -> 3.9.1-2.ph5
+  python3-packaging 20.4-2.ph5 -> 20.4-3.ph5
+  python3-pyrsistent 0.17.3-1.ph5 -> 0.17.3-2.ph5
+  python3-setuptools 3.8.6-1.ph5 -> 3.9.1-2.ph5
+  python3-urllib3 1.25.10-2.ph5 -> 1.25.11-1.ph5
+  python3-xml 3.8.6-1.ph5 -> 3.9.1-2.ph5
+  rpm 4.14.2-11.ph5 -> 4.16.1.2-1.ph5
+  rpm-libs 4.14.2-11.ph5 -> 4.16.1.2-1.ph5
+  rpm-ostree 2020.5-4.ph5 -> 2020.5-5.ph5
+  shadow 4.8.1-2.ph5 -> 4.8.1-3.ph5
+  shadow-tools 4.8.1-2.ph5 -> 4.8.1-3.ph5
+  sudo 1.8.30-2.ph5 -> 1.9.5-1.ph5
+  systemd 245.5-3.ph5 -> 247.3-1.ph5
+  util-linux 2.36-1.ph5 -> 2.36-2.ph5
+  util-linux-libs 2.36-1.ph5 -> 2.36-2.ph5
 Added:
-  libpcap-1.10.0-1.ph4.x86_64
-  python3-Pygments-2.7.2-2.ph4.noarch
-  python3-alabaster-0.7.12-1.ph4.noarch
-  python3-babel-2.8.0-3.ph4.noarch
-  python3-docutils-0.16-1.ph4.noarch
-  python3-imagesize-1.2.0-2.ph4.noarch
-  python3-pytz-2020.4-2.ph4.noarch
-  python3-snowballstemmer-2.0.0-1.ph4.noarch
-  python3-sphinx-3.3.0-2.ph4.noarch
-  python3-sphinxcontrib-applehelp-1.0.2-1.ph4.noarch
-  python3-sphinxcontrib-devhelp-1.0.2-1.ph4.noarch
-  python3-sphinxcontrib-htmlhelp-1.0.3-1.ph4.noarch
-  python3-sphinxcontrib-jsmath-1.0.1-1.ph4.noarch
-  python3-sphinxcontrib-qthelp-1.0.3-1.ph4.noarch
-  python3-sphinxcontrib-serializinghtml-1.1.4-1.ph4.noarch
-  python3-typing-3.7.4.3-1.ph4.noarch
-  systemd-libs-247.3-1.ph4.x86_64
-  systemd-pam-247.3-1.ph4.x86_64
-  systemd-rpm-macros-247.3-1.ph4.noarch
-  systemd-udev-247.3-1.ph4.x86_64
+  libpcap-1.10.0-1.ph5.x86_64
+  python3-Pygments-2.7.2-2.ph5.noarch
+  python3-alabaster-0.7.12-1.ph5.noarch
+  python3-babel-2.8.0-3.ph5.noarch
+  python3-docutils-0.16-1.ph5.noarch
+  python3-imagesize-1.2.0-2.ph5.noarch
+  python3-pytz-2020.4-2.ph5.noarch
+  python3-snowballstemmer-2.0.0-1.ph5.noarch
+  python3-sphinx-3.3.0-2.ph5.noarch
+  python3-sphinxcontrib-applehelp-1.0.2-1.ph5.noarch
+  python3-sphinxcontrib-devhelp-1.0.2-1.ph5.noarch
+  python3-sphinxcontrib-htmlhelp-1.0.3-1.ph5.noarch
+  python3-sphinxcontrib-jsmath-1.0.1-1.ph5.noarch
+  python3-sphinxcontrib-qthelp-1.0.3-1.ph5.noarch
+  python3-sphinxcontrib-serializinghtml-1.1.4-1.ph5.noarch
+  python3-typing-3.7.4.3-1.ph5.noarch
+  systemd-libs-247.3-1.ph5.x86_64
+  systemd-pam-247.3-1.ph5.x86_64
+  systemd-rpm-macros-247.3-1.ph5.noarch
+  systemd-udev-247.3-1.ph5.x86_64
   Run "systemctl reboot" to start a reboot
 ```
 
@@ -1368,13 +1368,13 @@ The boot order moved back to original:
 root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status
 State: idle
 Deployments:
-  ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+  ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
   Diff: 63 upgraded, 20 added
 
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2020-11-04T02:21:47Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2020-11-04T02:21:47Z)
 Commit: 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
 ```
 
@@ -1451,8 +1451,8 @@ root@photon-host-def [ ~ ]# rpm-ostree status
   State: idle
   AutomaticUpdates: disabled
   Deployments:
-  * ostree://photon-2:photon/4.0/x86_64/minimal
-      Version: 4.0_minimal (2019-09-18T12:48:03Z)
+  * ostree://photon-2:photon/5.0/x86_64/minimal
+      Version: 5.0_minimal (2019-09-18T12:48:03Z)
   Commit: cf357c0f376decb3bae42326737db7e36bcf3568ab901c33dc57800c3718f07b
   
   root@photon-host-cus1 [ ~ ]# ls /ostree/deploy/photon/deploy/
@@ -1467,7 +1467,7 @@ root@photon-7c2d910d79e9 [ ~ ]# ostree log 965c
   commit 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
   ContentChecksum:  9bc85673bd8d5599d61a02a99accce9bc9b72612c7a3cebd35427875f6514288
   Date:  2021-02-20 07:15:43 +0000
-  Version: 4.0_minimal
+  Version: 5.0_minimal
   (no subject)
 ```
     
@@ -1495,7 +1495,7 @@ Let's assume that after a while, VMware releases version 2 that removes **sudo**
 
 ```console
 root@photon-host-def [ ~ ]# rpm-ostree upgrade --check-diff
-Updating from: photon:photon/4.0/x86_64/minimal
+Updating from: photon:photon/5.0/x86_64/minimal
 
 7 metadata, 13 content objects fetched; 1287 KiB transferred in 0 seconds
 +bison-3.0.2-2.ph1.x86_64
@@ -1515,12 +1515,12 @@ After reboot, let's check the booting filetrees, the current dir for the current
 root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status
 State: idle
 Deployments:
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2020-11-04T02:21:47Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2020-11-04T02:21:47Z)
 Commit: 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
 
-  ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+  ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 
 
@@ -1556,17 +1556,18 @@ So commit 092e knows who its parent is, but its metadata is no longer in the loc
 We can reset the head of a branch in a local repo to a previous commit, for example corresponding to version 0 (3.0_minimal).
 
 ```console
-root@photon-7c2d910d79e9 [ ~ ]# ostree reset photon:photon/4.0/x86_64/minimal 965c
+root@photon-7c2d910d79e9 [ ~ ]# ostree reset photon:photon/5.0/x86_64/minimal 965c
 ```
 
 Now if we look again at the branch commit history, the head is at version 0.
 
 ```console
-root@photon-7c2d910d79e9 [ ~ ]# ostree log photon/4.0/x86_64/minimal
+root@photon-7c2d910d79e9 [ ~ ]# ostree log photon/5.0/x86_64/minimal
 commit 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 ContentChecksum:  9bc85673bd8d5599d61a02a99accce9bc9b72612c7a3cebd35427875f6514288
 Date:  2021-02-20 07:15:43 +0000
-Version: 4.0_minimal
+Version: 5.0_minimal
 (no subject)
 ```
     
+**Note**: The outputs listed above are only for reference. The version numbers in the outputs might vary from the actual outputs.

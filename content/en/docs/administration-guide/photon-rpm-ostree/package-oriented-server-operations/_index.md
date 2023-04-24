@@ -33,9 +33,9 @@ root [ /srv/rpm-ostree ]# cat photon-base.json
 
     "osname": "photon",
 
-    "ref": "photon/4.0/x86_64/minimal",
+    "ref": "photon/5.0/x86_64/minimal",
 
-    "automatic_version_prefix": "4.0_minimal",
+    "automatic_version_prefix": "5.0_minimal",
 
     "repos": ["photon"],
 
@@ -89,8 +89,8 @@ Going back to our JSON file, **repos** is a multi-value setting that tells RPM-O
 ```ini 
 root [ /srv/rpm-ostree ]# cat /etc/yum.repos.d/photon.repo 
 [photon]
-name=VMware Photon Linux 4.0(x86_64)
-baseurl=https://packages.vmware.com/photon/4.0/photon_release_$releasever_$basearch
+name=VMware Photon Linux 5.0(x86_64)
+baseurl=https://packages.vmware.com/photon/5.0/photon_release_$releasever_$basearch
 gpgkey=file:///etc/pki/rpm-gpg/VMWARE-RPM-GPG-KEY
 gpgcheck=1
 enabled=1
@@ -118,7 +118,7 @@ All you have to do now is to replace the `"repos": ["photon"]` entry by `"repos"
 ```ini
 root [ /srv/rpm-ostree ]# cat /etc/yum.repos.d/photon-iso.repo
 [photon-iso]
-name=VMWare Photon Linux ISO 4.0(x86_64)
+name=VMWare Photon Linux ISO 5.0(x86_64)
 baseurl=file:///mnt/cdrom/RPMS
 gpgkey=file:///etc/pki/rpm-gpg/VMWARE-RPM-GPG-KEY
 gpgcheck=1
@@ -139,17 +139,17 @@ Previous commit: 2940e10c4d90ce6da572cbaeeff7b511cab4a64c280bd5969333dd2fca57cfa
 Downloading metadata [=========================================================================] 100%
 
 Transaction: 117 packages
-  Linux-PAM-1.1.8-2.ph3.x86_64
-  attr-2.4.47-1.ph3.x86_64
+  Linux-PAM-1.1.8-2.ph5.x86_64
+  attr-2.4.47-1.ph5.x86_64
   ...
-  gawk-4.1.0-2.ph3.x86_64
+  gawk-4.1.0-2.ph5.x86_64
   ...
-  sudo-1.8.11p1-4.ph3.x86_64
+  sudo-1.8.11p1-4.ph5.x86_64
   ...
-  wget-1.15-1.ph3.x86_64
-  which-2.20-1.ph3.x86_64
-  xz-5.0.5-2.ph3.x86_64
-  zlib-1.2.8-2.ph3.x86_64
+  wget-1.15-1.ph5.x86_64
+  which-2.20-1.ph5.x86_64
+  xz-5.0.5-2.ph5.x86_64
+  zlib-1.2.8-2.ph5.x86_64
 Installing packages [==========================================================================] 100%
 Writing '/var/tmp/rpm-ostree.TVO089/rootfs.tmp/usr/share/rpm-ostree/treefile.json'
 Preparing kernel
@@ -183,7 +183,7 @@ Skipping udev rule: 80-drivers-modprobe.rules
 *** Creating image file done ***
 Image: /var/tmp/initramfs.img: 11M
 ========================================================================
-Version: dracut-041-1.ph3
+Version: dracut-041-1.ph5
 
 Arguments: -v --tmpdir '/tmp' -f --no-hostonly
 
@@ -226,7 +226,7 @@ Committing '/var/tmp/rpm-ostree.TVO089/rootfs.tmp' ...
 photon/1.0/x86_64/minimal => c505f4bddb4381e8b5213682465f1e5bb150a18228aa207d763cea45c6a81bbe
 ```
 
-We've omitted a large portion of the logging output, however you can see that the new filetree adds to the top of the previous (initial) commit **2940e10c4d** and produces a new commit **c505f4bddb**. Our packages `gawk-4.1.0-2.ph3.x86_64`, `sudo-1.8.11p1-4.ph3.x86_64` and `wget-1.15-1.ph3.x86_64` have been added.  
+We've omitted a large portion of the logging output, however you can see that the new filetree adds to the top of the previous (initial) commit **2940e10c4d** and produces a new commit **c505f4bddb**. Our packages `gawk-4.1.0-2.ph5.x86_64`, `sudo-1.8.11p1-4.ph5.x86_64` and `wget-1.15-1.ph5.x86_64` have been added.  
 
 During compose, `rpm-ostree` checks out the file tree into its uncompressed form, applies the package changes, places the updated RPM repo into /usr/share/rpm  and calls `ostree` to commit its changes back into the OSTree repo. If we were to look at the temp directory during this time:
 
@@ -269,19 +269,19 @@ Even though you may have not modified the "packages" section in the json file, t
 
 ```console
 root [ ~ ]# rpm-ostree upgrade --check-diff
-Updating from: photon:photon/4.0/x86_64/minimal
+Updating from: photon:photon/5.0/x86_64/minimal
 
 8 metadata, 13 content objects fetched; 1002 KiB transferred in 0 seconds
-!bridge-utils-1.5-2.ph3.x86_64
-=bridge-utils-1.5-3.ph3.x86_64
-!bzip2-1.0.6-5.ph3.x86_64
-=bzip2-1.0.6-6.ph3.x86_64
-!curl-7.47.1-2.ph3.x86_64
-=curl-7.51.0-2.ph3.x86_64
-!docker-1.11.0-5.ph3.x86_64
-=docker-1.12.1-1.ph3.x86_64
+!bridge-utils-1.5-2.ph5.x86_64
+=bridge-utils-1.5-3.ph5.x86_64
+!bzip2-1.0.6-5.ph5.x86_64
+=bzip2-1.0.6-6.ph5.x86_64
+!curl-7.47.1-2.ph5.x86_64
+=curl-7.51.0-2.ph5.x86_64
+!docker-1.11.0-5.ph5.x86_64
+=docker-1.12.1-1.ph5.x86_64
 ...
-+libssh2-1.8.0-1.ph3.x86_64
++libssh2-1.8.0-1.ph5.x86_64
 ...
 
 root [ ~ ]# rpm-ostree upgrade
@@ -291,13 +291,13 @@ Updating from: photon:photon/1.0/x86_64/minimal
 Copying /etc changes: 6 modified, 0 removed, 14 added
 Transaction complete; bootconfig swap: yes deployment count change: 1
 Changed:
-  bridge-utils 1.5-2.ph3 -> 1.5-3.ph3
-  bzip2 1.0.6-5.ph3 -> 1.0.6-6.ph3
-  curl 7.47.1-2.ph3 -> 7.51.0-2.ph3
-  docker 1.11.0-5.ph3 -> 1.12.1-1.ph3
+  bridge-utils 1.5-2.ph5 -> 1.5-3.ph5
+  bzip2 1.0.6-5.ph5 -> 1.0.6-6.ph5
+  curl 7.47.1-2.ph5 -> 7.51.0-2.ph5
+  docker 1.11.0-5.ph5 -> 1.12.1-1.ph5
   ...
 Added:
-  libssh2-1.8.0-1.ph3.x86_64
+  libssh2-1.8.0-1.ph5.x86_64
 Upgrade prepared for next boot; run "systemctl reboot" to start a reboot
 ```
 
@@ -308,15 +308,15 @@ root [ ~ ]# rpm-ostree db diff 56ef 396e
 ostree diff commit old: 56e (56ef687f1319604b7900a232715718d26ca407de7e1dc89251b206f8e255dcb4)
 ostree diff commit new: 396 (396e1116ad94692b8c105edaee4fa12447ec3d8f73c7b3ade4e955163d517497)
 Upgraded:
- bridge-utils-1.5-3.ph3.x86_64
+ bridge-utils-1.5-3.ph5.x86_64
 * Mon Sep 12 2016 user1 <user1@vmware.com> 1.5-3
 -	Update patch to fix-2.
 
- bzip2-1.0.6-6.ph3.x86_64
+ bzip2-1.0.6-6.ph5.x86_64
 * Fri Oct 21 2016 user2 <user2@vmware.com> 1.0.6-6
 -       Fixing security bug CVE-2016-3189.
 
- curl-7.51.0-2.ph3.x86_64
+ curl-7.51.0-2.ph5.x86_64
 * Wed Nov 30 2016 user3 <user3@vmware.com> 7.51.0-2
 -   Enable sftp support.
 
@@ -329,7 +329,7 @@ Upgraded:
 * Mon Sep 19 2016 user3 <user3@vmware.com> 7.47.1-3
 -   	Applied CVE-2016-7167.patch.
 
- docker-1.12.1-1.ph3.x86_64
+ docker-1.12.1-1.ph5.x86_64
 * Wed Sep 21 2016 user3 <user3@vmware.com> 1.12.1-1
 -   Upgraded to version 1.12.1
 
@@ -343,7 +343,7 @@ Upgraded:
 -   Upgraded to version 1.11.2
 ...
 Added:
- libssh2-1.8.0-1.ph3.x86_64
+ libssh2-1.8.0-1.ph5.x86_64
 ```
 
 ## Composing for a different branch
@@ -351,3 +351,6 @@ Added:
 RPM-OSTree makes it very easy to create and update new branches, by composing using json config files that include the Refspec as the new branch name, the list of packages and the other settings we are now familiar with.  Photon OS RPM-OSTRee Server installer adds two extra files photon-minimal.json and photon-full.json in addition to photon-base.json, that correspond almost identically to the minimal and full profiles installed via tdnf. It also makes 'photon-base' a smaller set of starter branch.  
 
 Of course, you can create your own config files for your branches with desired lists of packages. You may compose on top of the existing tree, or you can [start fresh your own OSTRee repo](/docs/administration-guide/photon-rpm-ostree/file-oriented-server-operations/#starting-a-fresh-ostree-repo), using your own customized versioning.
+
+
+**Note**: The outputs listed above are only for reference. The version numbers in the outputs might vary from the actual outputs.    

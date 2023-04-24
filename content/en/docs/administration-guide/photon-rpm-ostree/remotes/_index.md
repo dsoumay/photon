@@ -38,7 +38,7 @@ If same command is executed on the custom host we've installed, it's going to re
 
 ```console
 root@photon-7c2d910d79e9 [ ~ ]# ostree remote show-url photon
-https://packages.vmware.com/photon/rpm-ostree/base/4.0/x86_64/repo
+https://packages.vmware.com/photon/rpm-ostree/base/5.0/x86_64/repo
 ```
 
 ## GPG signature verification
@@ -51,7 +51,7 @@ There is a whole chapter about signing, importing keys and so on that I will not
 ## Switching repositories
 
 Since mapping name/url is stored in the repo's config file, in principle you can re-assign a different URL, connecting the host to a different server. The next upgrade will get the latest commit chain from the new server.   
-If we edit photon-host-def's repo config and replace the VMware Photon Packages URL by photon-srv1's IP address, all original packages in the original 4.0_minimal version will be preserved, but any new package change (addition, removal, upgrade) added after that (in 4.0_minimal.1, 4.0_minimal.2) will be reverted and all new commits from photon-srv1 (that may have same version) will be applied. This is because the two repos are identical copies, so they have the same original commit ID as a common ancestor, but they diverge from there.  
+If we edit photon-host-def's repo config and replace the VMware Photon Packages URL by photon-srv1's IP address, all original packages in the original 5.0_minimal version will be preserved, but any new package change (addition, removal, upgrade) added after that (in 5.0_minimal.1, 5.0_minimal.2) will be reverted and all new commits from photon-srv1 (that may have same version) will be applied. This is because the two repos are identical copies, so they have the same original commit ID as a common ancestor, but they diverge from there.  
   
 If the old and new repo have nothing in common (no common ancestor commit), this will undo even the original commit, so all commits from the new tree will be applied.  
 A better solution would be to add a new remote that will identify where the commits come from.
@@ -61,7 +61,7 @@ A better solution would be to add a new remote that will identify where the comm
 A cleaner way to switch repositories is to add remotes that point to different servers. Let us add another server that we will refer to as **photon2**, along with (optional) the refspecs for branches that it provides (we will see later that in the newer OSTree versions, we don't need to know the branch names, they could be [queried at run-time](#list-available-branches)). 
 
 ```console
-root@photon-host-cus [ ~ ]# ostree remote add --repo=/ostree/repo -v --no-gpg-verify photon2 http://10.197.103.204:8080 photon/4.0/x86_64/minimal photon/4.0/x86_64/full
+root@photon-host-cus [ ~ ]# ostree remote add --repo=/ostree/repo -v --no-gpg-verify photon2 http://10.197.103.204:8080 photon/5.0/x86_64/minimal photon/5.0/x86_64/full
 root@photon-host-cus [ ~ ]# ostree remote list
 photon
 photon2
@@ -75,7 +75,7 @@ Where is this information stored? There is an extra config file created per each
 root@photon-host-cus [ ~ ]# cat /etc/ostree/remotes.d/photon2.conf 
 [remote "photon2"]
 url=http://10.0.0.86
-branches=photon/4.0/x86_64/minimal;photon/4.0/x86_64/full;
+branches=photon/5.0/x86_64/minimal;photon/5.0/x86_64/full;
 gpg-verify=false
 ```
 
@@ -96,13 +96,13 @@ In Photon OS, the hosts are able to query the server, if summary metadata has be
 
 ```console
 root@photon-host-cus [ ~ ]# ostree remote refs photon2 
-photon2:photon/4.0/x86_64/base
-photon2:photon/4.0/x86_64/full
-photon2:photon/4.0/x86_64/minimal
+photon2:photon/5.0/x86_64/base
+photon2:photon/5.0/x86_64/full
+photon2:photon/5.0/x86_64/minimal
 ```
 
 ## Switching branches (rebasing)
 
-If you have an installed Photon 3.0 that you want to carry to 4.0, you need to rebase it.
+If you have an installed Photon 4.0 that you want to carry to 5.0, you need to rebase it.
 
 See [rebasing](/docs/administration-guide/photon-rpm-ostree/install-or-rebase-to-photon-os-4/).

@@ -10,8 +10,8 @@ To verify this, run the status command.
     root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status 
     State: idle
     Deployments:
-    ● ostree://photon:photon/4.0/x86_64/minimal
-       Version: 4.0_minimal (2021-02-20T07:15:43Z)
+    ● ostree://photon:photon/5.0/x86_64/minimal
+       Version: 5.0_minimal (2021-02-20T07:15:43Z)
     Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
     
 

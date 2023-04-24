@@ -13,14 +13,14 @@ The first thing to do is to run a command that tells us what is installed on the
 root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status 
 State: idle
 Deployments:
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 ```
 
 ## Bootable filetree version
 
-**4.0_minimal** is not the Linux Photon OS release version, nor daily build, but rather a human readable, self-incrementing version associated with every commit that brings file/package updates. Think of this as version 0. The following versions are going to be 4.0_minimal.1, 4.0_minimal.2, 4.0_minimal.3 and so on.
+**5.0_minimal** is not the Linux Photon OS release version, nor daily build, but rather a human readable, self-incrementing version associated with every commit that brings file/package updates. Think of this as version 0. The following versions are going to be 5.0_minimal.1, 5.0_minimal.2, 5.0_minimal.3 and so on.
 
 ## Commit ID
 
@@ -31,8 +31,8 @@ root@photon-7c2d910d79e9 [ ~ ]# rpm-ostree status -v
 State: idle
 AutomaticUpdates: disabled
 Deployments:
-● ostree://photon:photon/4.0/x86_64/minimal
-    Version: 4.0_minimal (2021-02-20T07:15:43Z)
+● ostree://photon:photon/5.0/x86_64/minimal
+    Version: 5.0_minimal (2021-02-20T07:15:43Z)
 Commit: 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f
 └─ photon (2021-02-20T07:11:24Z)
 Staged: no
@@ -88,7 +88,7 @@ The **Refspec** is a branch inside the repo, expressed in a hierarchical way. In
 Think of Refspec as the head of the minimal branch (just like in git) at the origin repo. On the replicated, local repo at the host, **minimal** is a file that contains the latest commit ID known for that branch.  
 
 ```console
-root@photon-7c2d910d79e9 [ ~ ]# cat /ostree/repo/refs/remotes/photon/photon/4.0/x86_64/minimal
+root@photon-7c2d910d79e9 [ ~ ]# cat /ostree/repo/refs/remotes/photon/photon/5.0/x86_64/minimal
 820b584a6f90bf6b9b8cb6aad8c093064b88d0ab686be8130baa03d68917ad88
 ```
 
@@ -101,8 +101,8 @@ We've used so far `rpm-ostree`. The same information can be obtained running an 
 ```console
 root@photon-7c2d910d79e9 [ ~ ]# ostree admin status
 * photon 965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f.0
-Version: 4.0_minimal
-origin refspec: photon:photon/4.0/x86_64/minimal
+Version: 5.0_minimal
+origin refspec: photon:photon/5.0/x86_64/minimal
 ```
 
 But where is this information stored? As you may have guessed, the local repo stores the heads of the deployed trees - the most recent commitment ID, just like Git does: 
@@ -116,7 +116,7 @@ This also where this command that lists the references (local heads and remotes)
 
 ```console
 root@photon-7c2d910d79e9 [ ~ ]# ostree refs
-photon:photon/4.0/x86_64/minimal
+photon:photon/5.0/x86_64/minimal
 ostree/0/1/0
 ```
 
@@ -153,7 +153,7 @@ So how is a deployment linked to a specific branch, originating from a remote re
 ```console
 root@photon-7c2d910d79e9 [ ~ ]# cat /ostree/deploy/photon/deploy/965c1abeb048e1a8ff77e9cd34ffccc5e3356176cda3332b4ff0e7a6c66b661f.0.origin 
 [origin]
-refspec=photon:photon/4.0/x86_64/minimal
+refspec=photon:photon/5.0/x86_64/minimal
 ```
 
 Fast forwarding a bit, if there is a new deployment due to an upgrade or rebase, a new filetree will be added at the same level, and a new .origin file will tie it to the remote branch it originated from.  

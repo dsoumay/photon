@@ -219,8 +219,8 @@ Let's upgrade and replace the .0 image by a .4 build that contains git and also 
 ```console
 root@photon-host-cus1 [ ~ ]# rpm-ostree status
   TIMESTAMP (UTC)         VERSION               ID             OSNAME     REFSPEC
-* 2015-09-04 00:36:37     4.0_minimal     092e21d292     photon     photon:photon/x86_64/minimal
-  2015-08-20 22:27:43     4.0_minimal       2940e10c4d     photon     photon:photon/x86_64/minimal
+* 2015-09-04 00:36:37     5.0_minimal     092e21d292     photon     photon:photon/x86_64/minimal
+  2015-08-20 22:27:43     5.0_minimal       2940e10c4d     photon     photon:photon/x86_64/minimal
 
 root@photon-host-cus1 [ ~ ]# rpm-ostree upgrade
 Updating from: photon:photon/tp2/x86_64/minimal
@@ -236,11 +236,11 @@ Upgrade prepared for next boot; run "systemctl reboot" to start a reboot
 
 root@photon-host-cus1 [ ~ ]# rpm-ostree status
   TIMESTAMP (UTC)         VERSION               ID             OSNAME     REFSPEC
-  2015-09-06 18:12:08     4.0_minimal     d16aebd803     photon     photon:photon/x86_64/minimal
-* 2015-09-04 00:36:37     4.0_minimal     092e21d292     photon     photon:photon/x86_64/minimal
+  2015-09-06 18:12:08     5.0_minimal     d16aebd803     photon     photon:photon/x86_64/minimal
+* 2015-09-04 00:36:37     5.0_minimal     092e21d292     photon     photon:photon/x86_64/minimal
 ```
 
-After reboot from 4.0_minimal. build, let's check that the 3-way /etc merge succeeded as expected. The docker.service slink is still there, and docker demon restarted at boot.
+After reboot from 5.0_minimal. build, let's check that the 3-way /etc merge succeeded as expected. The docker.service slink is still there, and docker demon restarted at boot.
 
 ```console
 root@photon-host-cus1 [ ~ ]# ls -l /etc/systemd/system/multi-user.target.wants/docker.service

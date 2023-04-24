@@ -32,7 +32,7 @@ If not familiar with the way kickstart works, visit [Kickstart Support in Photon
     ...
     "type": "ostree_host",
     "ostree_repo_url": "http://192.168.218.249",
-    "ostree_repo_ref": "photon/4.0/x86_64/minimal",
+    "ostree_repo_ref": "photon/5.0/x86_64/minimal",
     ...
 ```
 Or, for default installation

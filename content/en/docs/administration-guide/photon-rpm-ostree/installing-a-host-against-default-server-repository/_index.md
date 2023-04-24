@@ -33,7 +33,7 @@ Then, select "Default OSTree Server" and continue.
 
 ![PhotonHostDefaultFinish](/docs/images/photon-os-finish.png)
 
-When installation is over, the VM will reboot and will show in grub VMWare Photon/Linux 4.0_minimal (ostree), which will reassure that it's booting from an OSTree image!  
+When installation is over, the VM will reboot and will show in grub VMWare Photon/Linux 5.0_minimal (ostree), which will reassure that it's booting from an OSTree image!  
 
 ![PhotonHostFirstRebootGrub](/docs/images/rpmostree-grub.png)  
 
