@@ -213,8 +213,27 @@ photon-iso-builder -v 5.0 -p /root/packages_custom.json -b "ks=http://10.197.102
 <details><summary>Using Default Installation as RPM-OStree</summary>
 <p>
 
+Before you generate the custom image using default installation as RPM-OStree, you need to generate ostree tar archive. Perform the following steps to generate the ostree tar archive:
 
-Command:
+1. Generate the ostree repo tree as directed here: [Creating a Server](https://vmware.github.io/photon/docs/administration-guide/photon-rpm-ostree/creating-a-rpm-ostree-server/)
+
+2. Create tarball of the repo tree:
+
+	Command:
+```
+	tar -czf </path/to/>ostree-repo.tar.gz -C </path/to/repotree>/repo
+```   
+
+Example: repo tree resides inside the following directory my-repo like `/root/my-repo/repo`
+    
+```   
+	tar -zcf /root/ostree-repo.tar.gz -C /root/my-repo/repo .
+```    
+
+Once the tar archive is generated, generate the custom image.
+To generate the custom image using default installation as RPM-OStree, execute the following command:
+
+
 
 ```
 photon-iso-builder -v <photon-release-version> -o <path/to/ostree-tar-archive> -f build-rpm-ostree-iso
