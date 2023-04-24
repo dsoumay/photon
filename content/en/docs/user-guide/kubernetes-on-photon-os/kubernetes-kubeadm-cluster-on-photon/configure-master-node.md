@@ -220,7 +220,7 @@ If everything goes well, the `kubeadm init` command should end with a message as
 
 **Note**: Copy and save the `sha256` token value at the end. You need to use this token for the worker node to join the cluster.
 
-The `--pode-network-cidr` parameter is a requirement for Calico. The 192.168.0.0/16 network is Calico's default. For Flannel/Canal, it is 10.244.0.0/16.
+The `--pod-network-cidr` parameter is a requirement for Calico. The 192.168.0.0/16 network is Calico's default. For Flannel/Canal, it is 10.244.0.0/16.
 
 You need to export the kubernetes configuration. For any new session, this step of export is repeated.
 

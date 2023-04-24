@@ -181,6 +181,19 @@ kubeadm config images pull
 Use Kubeadm to join the cluster with the token you got after running the `kubeadm init` command on the master node. Use the following command to join the cluster:
 
 ```
+Join the master
+```   
+```
+kubeadm join 10.197.103.246:6443 --token eaq5cl.gqnzgmqj779xtym7 \
+    --discovery-token-ca-cert-hash sha256:90b9da1b34de007c583aec6ca65f78664f35b3ff03ceffb293d6ec9332142d05
+```   
+Use the following command to get cni images for network policy pods to work:
+
+```
+Pull required docker images
+```   
+
+```
 tdnf install -y docker
 systemctl restart docker
 docker login -u $username
