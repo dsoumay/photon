@@ -1,5 +1,5 @@
 ---
-title:  Installing the ISO Image for Photon OS
+title:  Installing the ISO Image for Photon OS 
 weight: 3
 ---
 

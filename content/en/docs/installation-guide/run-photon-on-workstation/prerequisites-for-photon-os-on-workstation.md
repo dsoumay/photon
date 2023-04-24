@@ -43,7 +43,7 @@ Before you use Photon OS within Workstation, perform the following prerequisite 
 
 1. Decide whether to use the OVA or ISO distribution to set up Photon OS.
 
-  - **OVA import** : Because of the nature of an OVA, you're getting a pre-installed version of Photon OS. You can choose the hardware version you want (OVA with hardware version 13 or 11). The OVA benefits from a simple import process and some kernel tuning for VMware environments. However, because it's a pre-installed version, the set of packages that are installed are predetermined. Any additional packages that you need can be installed using tdnf.
+  - **OVA import** : Because of the nature of an OVA, you're getting a pre-installed version of Photon OS. You can choose the hardware version you want (OVA with hardware version 15). The OVA benefits from a simple import process and some kernel tuning for VMware environments. However, because it's a pre-installed version, the set of packages that are installed are predetermined. Any additional packages that you need can be installed using tdnf.
 
   - **ISO install** : The ISO, on the other hand, allows for a more complete installation or automated installation via kickstart.
 

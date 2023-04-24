@@ -6,7 +6,7 @@ weight: 2
 
 Using the OVA is a fast and easy way to create a Photon OS VM on Fusion.
 
-After you have downloaded the Photon OS OVA image (OVA with Hardware Version 11) into a folder of your choice, open VMware Fusion and perform the following steps:
+After you have downloaded the Photon OS OVA image (OVA with Hardware Version 15) into a folder of your choice, open VMware Fusion and perform the following steps:
 
 1. Start the Import Process
 

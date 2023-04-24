@@ -17,7 +17,7 @@ Before you use Photon OS within Fusion, perform the following prerequisite tasks
 	</tr>
 	<tr>
 	<td>VMware Fusion</td>
-	<td>VMware Fusion (v7.0 or higher) must be installed. The latest version (v12) is recommended.</td>
+	<td>VMware Fusion (v11.x or higher) must be installed. The latest version (v13) is recommended.</td>
 	</tr>
 	<tr>
 	<td>Memory</td>
@@ -44,7 +44,7 @@ Before you use Photon OS within Fusion, perform the following prerequisite tasks
 
 2. Decide whether to use the OVA or ISO distribution to set up Photon OS.
 
-    - **OVA import** : Because of the nature of an OVA, you're getting a pre-installed version of Photon OS. You can choose the hardware version you want (OVA with hardware version 13 or 11). The OVA benefits from a simple import process and some kernel tuning for VMware environments. However, because it's a pre-installed version, the set of packages that are installed are predetermined. Any additional packages that you need can be installed using tdnf.
+    - **OVA import** : Because of the nature of an OVA, you're getting a pre-installed version of Photon OS. You can choose the hardware version you want (OVA with hardware version 15). The OVA benefits from a simple import process and some kernel tuning for VMware environments. However, because it's a pre-installed version, the set of packages that are installed are predetermined. Any additional packages that you need can be installed using tdnf.
     - **ISO install** : The ISO, on the other hand, allows for a more complete installation or automated installation via kickstart.
 
     To get Photon OS up and running quickly, use the OVA.
