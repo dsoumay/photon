@@ -91,7 +91,7 @@ You can verify the generated output with the following commands:
 - Command to install the RPM:  
    
 ```
-rpm -ivh ./photon/tools/examples/build_spec/kernel_module_example/stage/RPMS/x86_64/hello-world-1.0-1.ph4.x86_64.rpm
+rpm -ivh ./photon/tools/examples/build_spec/kernel_module_example/stage/RPMS/x86_64/hello-world-1.0-1.ph5.x86_64.rpm
 ```
 
 

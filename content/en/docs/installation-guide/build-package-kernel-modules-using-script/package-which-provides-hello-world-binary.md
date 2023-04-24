@@ -83,7 +83,7 @@ You can verify the generated output with the following commands:
 - Command to install the RPM:
 
 ```
-rpm -ivh $STAGEDIR/RPMS/x86_64/hello-world-user-1.0-1.ph4.x86_64.rpm
+rpm -ivh $STAGEDIR/RPMS/x86_64/hello-world-user-1.0-1.ph5.x86_64.rpm
 ```
 
 - Command to verify the installed user package (execute the installed binary of the user package):
