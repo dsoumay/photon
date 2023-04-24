@@ -10,7 +10,7 @@ To use the A/B partition system, ensure the following prerequisites:
 
 - If you boot with BIOS, only a root filesystem pair is needed. If you boot with UEFI, an EFI partition pair is also needed.
 
-- In the kickstart configuration file, when you create a partition, set the value of the `ab` parameter as `true` to create a shadow partition of the user-defined partition set.
+- In the kickstart configuration file, when you create a partition, set the value of the `ab` parameter as `true` to create a shadow partition of the user-defined partition.
 
 	To know more about the kickstart configuration, see the following page: [Kickstart Support in Photon OS](https://vmware.github.io/photon/docs/user-guide/working-with-kickstart/)
 
