@@ -9,7 +9,7 @@ The SPECS directory of the GitHub website for Photon OS contains all the package
 
 To see the version of a package, in the SPECS directory, click the name of the subdirectory of the package that you want to examine, and then click the `.spec` filename in the subdirectory. 
 
-For example, the version of python3 appears as follows:
+For example, `python3.spec` appears as follows::
 
 ```
 %global VER 3.11

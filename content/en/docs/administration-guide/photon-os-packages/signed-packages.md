@@ -29,6 +29,31 @@ The command returns the GPG public key:
 Once you have the name of the key, you can view information about the key with the `rpm -qi` command, as the following abridged output demonstrates: 
 
 ```
+rpm -qi gpg-pubkey-66fd4949-4803fe57
+Name        : gpg-pubkey
+    Version     : 66fd4949
+    Release     : 4803fe57
+    Architecture: (none)
+    Install Date: Thu Jun 16 11:51:39 2016
+    Group       : Public Keys
+    Size        : 0
+    License     : pubkey
+    Signature   : (none)
+    Source RPM  : (none)
+    Build Date  : Tue Apr 15 01:01:11 2008
+    Build Host  : localhost
+    Relocations : (not relocatable)
+    Packager    : VMware, Inc. -- Linux Packaging Key -- <linux-packages@vmware.com>
+    Summary     : gpg(VMware, Inc. -- Linux Packaging Key -- <linux-packages@vmware.                        com>)
+    Description :
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    Version: rpm-4.11.2 (NSS-3)
+    mI0ESAP+VwEEAMZylR8dOijUPNn3He3GdgM/kOXEhn3uQl+sRMNJUDm1qebi2D5b ...
+```   
+
+
+
+```
 rpm -qi gpg-pubkey-8a6a826d-596882ca
 Name        : gpg-pubkey
 Version     : 8a6a826d
