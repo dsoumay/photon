@@ -16,7 +16,7 @@ Before you use Photon OS within Workstation, perform the following prerequisite 
 	</tr>
 	<tr>
 	<td> VMware Workstation</td>
-	<td>VMware Workstation must be installed (Workstation 10 or higher). The latest version is recommended.</p></td>
+	<td>VMware Workstation must be installed (Workstation v15.x or higher). The latest version is recommended.</p></td>
 	</tr>
 	<tr>
 	<td>Memory</td>
